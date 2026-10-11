@@ -1,0 +1,189 @@
+{
+ "status": "fail",
+ "checks": [
+  {
+   "check": "M01 monthly (41 months)",
+   "pass": true,
+   "erpnext": 0,
+   "wwi_oracle": 0,
+   "note": "months differing: []"
+  },
+  {
+   "check": "M01 total",
+   "pass": true,
+   "erpnext": 73595.0,
+   "wwi_oracle": 73595.0,
+   "note": null
+  },
+  {
+   "check": "M13 monthly (41 months)",
+   "pass": true,
+   "erpnext": 0,
+   "wwi_oracle": 0,
+   "note": "months differing: []"
+  },
+  {
+   "check": "M13 total",
+   "pass": true,
+   "erpnext": 9310904.0,
+   "wwi_oracle": 9310904.0,
+   "note": null
+  },
+  {
+   "check": "M10 monthly (41 months)",
+   "pass": false,
+   "erpnext": 4,
+   "wwi_oracle": 0,
+   "note": "months differing: ['2016-05', '2016-03', '2016-04', '2016-02']"
+  },
+  {
+   "check": "M10 total",
+   "pass": false,
+   "erpnext": 157353920.95,
+   "wwi_oracle": 172261341.2,
+   "note": null
+  },
+  {
+   "check": "M04 stock on hand per item (228 items)",
+   "pass": true,
+   "erpnext": 0,
+   "wwi_oracle": 0,
+   "note": "differing: []"
+  },
+  {
+   "check": "M02 total (all history, real data)",
+   "pass": false,
+   "erpnext": 1175141,
+   "wwi_oracle": 360276,
+   "note": null
+  },
+  {
+   "check": "M02 per item (top 50)",
+   "pass": false,
+   "erpnext": 50,
+   "wwi_oracle": 0,
+   "note": "differing: ['WWI-193', 'WWI-86', 'WWI-98', 'WWI-78', 'WWI-184', 'WWI-77']"
+  },
+  {
+   "check": "M05 total (all history, real data)",
+   "pass": false,
+   "erpnext": 23899499,
+   "wwi_oracle": 360278,
+   "note": null
+  },
+  {
+   "check": "M05 per item (top 9)",
+   "pass": false,
+   "erpnext": 9,
+   "wwi_oracle": 0,
+   "note": "differing: ['WWI-193', 'WWI-86', 'WWI-98', 'WWI-78', 'WWI-184', 'WWI-77']"
+  },
+  {
+   "check": "Story: May vs April orders +96",
+   "pass": true,
+   "erpnext": 96,
+   "wwi_oracle": 96,
+   "note": null
+  },
+  {
+   "check": "Story: Great Lakes +65",
+   "pass": true,
+   "erpnext": 65,
+   "wwi_oracle": 65,
+   "note": null
+  },
+  {
+   "check": "Story: item 80 on hand",
+   "pass": true,
+   "erpnext": 20.0,
+   "wwi_oracle": 20,
+   "note": null
+  },
+  {
+   "check": "Story: item 80 on order (units)",
+   "pass": false,
+   "erpnext": 1453764.0,
+   "wwi_oracle": 21972,
+   "note": null
+  },
+  {
+   "check": "Synthetic: one flagged sales order for WWI-1227, 120 to deliver, 20 on hand, 0 on order",
+   "pass": true,
+   "erpnext": [
+    [
+     "WWI-1227",
+     120.0,
+     0.0,
+     20.0,
+     0.0
+    ]
+   ],
+   "wwi_oracle": [
+    [
+     "WWI-1227",
+     120.0,
+     0.0,
+     20.0,
+     0.0
+    ]
+   ],
+   "note": null
+  },
+  {
+   "check": "Counts: sales orders",
+   "pass": true,
+   "erpnext": 73596,
+   "wwi_oracle": 73596,
+   "note": "73,595 WWI + 1 synthetic"
+  },
+  {
+   "check": "Counts: sales invoices",
+   "pass": false,
+   "erpnext": 64500,
+   "wwi_oracle": 70510,
+   "note": null
+  },
+  {
+   "check": "Counts: purchase orders",
+   "pass": true,
+   "erpnext": 2074,
+   "wwi_oracle": 2074,
+   "note": null
+  },
+  {
+   "check": "Counts: purchase receipts",
+   "pass": false,
+   "erpnext": 1914,
+   "wwi_oracle": 2072,
+   "note": null
+  },
+  {
+   "check": "Tax total (informational)",
+   "pass": null,
+   "erpnext": 23584035.9,
+   "wwi_oracle": 25782098.25,
+   "note": "ERPNext rounds tax per invoice, WWI per line; cents differ by design"
+  },
+  {
+   "check": "M11 recorded profit",
+   "pass": null,
+   "note": "Not comparable: ERPNext recomputes profit from stock valuation; WWI LineProfit is kept in Sales Invoice Item.wwi_line_profit"
+  }
+ ],
+ "masters": {
+  "Customer": 663,
+  "Item": 228,
+  "Supplier": 13,
+  "Sales Person": 11,
+  "Territory": 65,
+  "Customer Group": 13,
+  "Item Group": 16
+ },
+ "counts": {
+  "Sales Order": 73596,
+  "Sales Invoice": 64500,
+  "Purchase Order": 2074,
+  "Purchase Receipt": 1914,
+  "Stock Reconciliation": 2
+ }
+}

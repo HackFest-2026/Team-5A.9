@@ -1,0 +1,7 @@
+{"t": 0.0, "kind": "turn", "text": "Which supplier has incoming stock for item 80?"}
+{"t": 17.743, "kind": "understand", "intent": {"action": "analyze", "measure_id": "M05", "group_by": "supplier", "period": {"kind": "all_time"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [{"filter": "stock_item_id", "value": 80}], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 17.74, "retries": 0}
+{"t": 17.743, "kind": "expectation", "action": "analyze", "request": {"measure_id": "M05", "group_by": "supplier", "filters": {"stock_item_id": 80}, "scenario_id": "base"}}
+{"t": 17.769, "kind": "tool_call", "tool": "analyze", "args": {"measure_id": "M05", "date_basis": "none", "group_by": "supplier", "filters": {"stock_item_id": 80}, "scenario_id": "base"}, "ok": true, "error": null, "latency": 0.026}
+{"t": 17.769, "kind": "finish_check", "ok": true, "violations": []}
+{"t": 29.006, "kind": "answer_draft", "draft": 0, "ok": true, "latency": 11.24, "violations": []}
+{"t": 29.006, "kind": "result", "status": "answered", "op": "analyze", "link": "#/analysis?measure_id=M05&date_basis=none&group_by=supplier&sort=value_desc&top_n=10&scenario_id=base&stock_item_id=80", "latency": 29.01, "llm_calls": 2}

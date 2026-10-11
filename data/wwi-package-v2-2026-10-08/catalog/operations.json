@@ -1,0 +1,1123 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "scenario_id": "base",
+  "items": [
+    {
+      "name": "analyze",
+      "method": "POST",
+      "path": "/api/analyze",
+      "purpose": "Any published measure, optionally broken down by a dimension and/or compared with a baseline period.",
+      "when_to_use": "Numbers, rankings, breakdowns, period comparisons.",
+      "input_schema": {
+        "$defs": {
+          "AnalyzeFilters": {
+            "additionalProperties": false,
+            "properties": {
+              "customer_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Customer Id"
+              },
+              "stock_item_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Item Id"
+              },
+              "supplier_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Supplier Id"
+              },
+              "stock_group_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Group Id"
+              },
+              "order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Id"
+              },
+              "order_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Line Id"
+              },
+              "purchase_order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Order Id"
+              },
+              "purchase_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Line Id"
+              },
+              "customer_category_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Customer Category Id"
+              },
+              "buying_group_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Buying Group Id"
+              },
+              "state_province_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "State Province Id"
+              },
+              "sales_territory": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "Far West",
+                      "Great Lakes",
+                      "Mideast",
+                      "New England",
+                      "Plains",
+                      "Rocky Mountain",
+                      "Southeast",
+                      "Southwest",
+                      "External"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Sales Territory"
+              },
+              "salesperson_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Salesperson Id"
+              },
+              "status": {
+                "default": "all",
+                "enum": [
+                  "all",
+                  "quantity-not-yet-picked",
+                  "picking-incomplete",
+                  "picking-complete",
+                  "incoming"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "AnalyzeFilters",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "dataset_version": {
+            "const": "wwi-data-v1-2026-10-08",
+            "default": "wwi-data-v1-2026-10-08",
+            "title": "Dataset Version",
+            "type": "string"
+          },
+          "scenario_id": {
+            "default": "base",
+            "enum": [
+              "base",
+              "no_incoming_v1"
+            ],
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "measure_id": {
+            "enum": [
+              "M01",
+              "M02",
+              "M03",
+              "M13",
+              "M05",
+              "M10",
+              "M11"
+            ],
+            "title": "Measure Id",
+            "type": "string"
+          },
+          "date_basis": {
+            "anyOf": [
+              {
+                "enum": [
+                  "order_date",
+                  "invoice_date",
+                  "purchase_order_date",
+                  "expected_delivery_date",
+                  "none"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Date Basis"
+          },
+          "start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Start"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "End"
+          },
+          "compare_start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Compare Start"
+          },
+          "compare_end": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Compare End"
+          },
+          "group_by": {
+            "default": "none",
+            "enum": [
+              "none",
+              "month",
+              "customer",
+              "customer_category",
+              "buying_group",
+              "state_province",
+              "sales_territory",
+              "salesperson",
+              "stock_item",
+              "supplier",
+              "stock_group"
+            ],
+            "title": "Group By",
+            "type": "string"
+          },
+          "filters": {
+            "$ref": "#/$defs/AnalyzeFilters"
+          },
+          "sort": {
+            "anyOf": [
+              {
+                "enum": [
+                  "value_desc",
+                  "value_asc",
+                  "label_asc",
+                  "label_desc",
+                  "change_desc",
+                  "change_asc",
+                  "abs_change_desc"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Sort"
+          },
+          "top_n": {
+            "default": 10,
+            "maximum": 50,
+            "minimum": 1,
+            "title": "Top N",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "measure_id"
+        ],
+        "title": "AnalyzeRequest",
+        "type": "object"
+      },
+      "returns": "total or totals+change, rows, applied, deep_link"
+    },
+    {
+      "name": "resolve",
+      "method": "POST",
+      "path": "/api/resolve",
+      "purpose": "Turn a name the user typed into an entity ID.",
+      "when_to_use": "Before using any named customer, item, supplier, category, group, state, territory or salesperson as a filter.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "types": {
+            "anyOf": [
+              {
+                "items": {
+                  "enum": [
+                    "customer",
+                    "stock_item",
+                    "supplier",
+                    "customer_category",
+                    "buying_group",
+                    "stock_group",
+                    "state_province",
+                    "sales_territory",
+                    "salesperson"
+                  ],
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Types"
+          },
+          "limit": {
+            "default": 5,
+            "maximum": 25,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "ResolveRequest",
+        "type": "object"
+      },
+      "returns": "status unique|ambiguous|none, candidates"
+    },
+    {
+      "name": "related",
+      "method": "POST",
+      "path": "/api/related",
+      "purpose": "Everything linked to one entity, with next-step suggestions.",
+      "when_to_use": "Drilling from a result row into an entity; multi-hop questions.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_type": {
+            "enum": [
+              "customer",
+              "order",
+              "stock_item",
+              "supplier",
+              "purchase_order",
+              "salesperson"
+            ],
+            "title": "Entity Type",
+            "type": "string"
+          },
+          "entity_id": {
+            "exclusiveMinimum": 0,
+            "title": "Entity Id",
+            "type": "integer"
+          },
+          "scenario_id": {
+            "default": "base",
+            "enum": [
+              "base",
+              "no_incoming_v1"
+            ],
+            "title": "Scenario Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "entity_type",
+          "entity_id"
+        ],
+        "title": "RelatedRequest",
+        "type": "object"
+      },
+      "returns": "entity summary, linked records, next_steps"
+    },
+    {
+      "name": "metric",
+      "method": "POST",
+      "path": "/api/metric",
+      "purpose": "v1 verified measures (M01-M05, M12) exactly as the dashboard cards compute them.",
+      "when_to_use": "Holdings (M04) and checks that a card shows the same value.",
+      "input_schema": {
+        "$defs": {
+          "Filters": {
+            "additionalProperties": false,
+            "properties": {
+              "customer_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Customer Id"
+              },
+              "stock_item_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Item Id"
+              },
+              "supplier_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Supplier Id"
+              },
+              "stock_group_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Group Id"
+              },
+              "order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Id"
+              },
+              "order_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Line Id"
+              },
+              "purchase_order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Order Id"
+              },
+              "purchase_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Line Id"
+              },
+              "status": {
+                "default": "all",
+                "enum": [
+                  "all",
+                  "quantity-not-yet-picked",
+                  "picking-incomplete",
+                  "picking-complete",
+                  "incoming",
+                  "all-history"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "Filters",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dataset_version": {
+            "const": "wwi-data-v1-2026-10-08",
+            "default": "wwi-data-v1-2026-10-08",
+            "title": "Dataset Version",
+            "type": "string"
+          },
+          "scenario_id": {
+            "default": "base",
+            "enum": [
+              "base",
+              "no_incoming_v1"
+            ],
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "date_basis": {
+            "default": "order_date",
+            "enum": [
+              "order_date",
+              "expected_delivery_date",
+              "picking_completed_time",
+              "purchase_order_date",
+              "invoice_date",
+              "confirmed_delivery_time",
+              "none"
+            ],
+            "title": "Date Basis",
+            "type": "string"
+          },
+          "start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Start"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "End"
+          },
+          "filters": {
+            "$ref": "#/$defs/Filters"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 200,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "maximum": 1000000,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          }
+        },
+        "title": "Request",
+        "type": "object"
+      },
+      "returns": "value rows, applied_filters"
+    },
+    {
+      "name": "records",
+      "method": "POST",
+      "path": "/api/records",
+      "purpose": "Paged source records: orders, order_lines, items, holdings, purchase_orders, purchase_lines, customers, suppliers.",
+      "when_to_use": "Listing evidence rows.",
+      "input_schema": {
+        "$defs": {
+          "Filters": {
+            "additionalProperties": false,
+            "properties": {
+              "customer_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Customer Id"
+              },
+              "stock_item_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Item Id"
+              },
+              "supplier_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Supplier Id"
+              },
+              "stock_group_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Group Id"
+              },
+              "order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Id"
+              },
+              "order_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Line Id"
+              },
+              "purchase_order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Order Id"
+              },
+              "purchase_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Line Id"
+              },
+              "status": {
+                "default": "all",
+                "enum": [
+                  "all",
+                  "quantity-not-yet-picked",
+                  "picking-incomplete",
+                  "picking-complete",
+                  "incoming",
+                  "all-history"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "Filters",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dataset_version": {
+            "const": "wwi-data-v1-2026-10-08",
+            "default": "wwi-data-v1-2026-10-08",
+            "title": "Dataset Version",
+            "type": "string"
+          },
+          "scenario_id": {
+            "default": "base",
+            "enum": [
+              "base",
+              "no_incoming_v1"
+            ],
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "date_basis": {
+            "default": "order_date",
+            "enum": [
+              "order_date",
+              "expected_delivery_date",
+              "picking_completed_time",
+              "purchase_order_date",
+              "invoice_date",
+              "confirmed_delivery_time",
+              "none"
+            ],
+            "title": "Date Basis",
+            "type": "string"
+          },
+          "start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Start"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "End"
+          },
+          "filters": {
+            "$ref": "#/$defs/Filters"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 200,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "maximum": 1000000,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          }
+        },
+        "title": "Request",
+        "type": "object"
+      },
+      "returns": "rows, total_rows, has_more, provenance"
+    },
+    {
+      "name": "chart",
+      "method": "POST",
+      "path": "/api/chart",
+      "purpose": "v1 dashboard chart data.",
+      "when_to_use": "Reading what a dashboard chart shows.",
+      "input_schema": {
+        "$defs": {
+          "Filters": {
+            "additionalProperties": false,
+            "properties": {
+              "customer_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Customer Id"
+              },
+              "stock_item_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Item Id"
+              },
+              "supplier_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Supplier Id"
+              },
+              "stock_group_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Stock Group Id"
+              },
+              "order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Id"
+              },
+              "order_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Order Line Id"
+              },
+              "purchase_order_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Order Id"
+              },
+              "purchase_line_id": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Purchase Line Id"
+              },
+              "status": {
+                "default": "all",
+                "enum": [
+                  "all",
+                  "quantity-not-yet-picked",
+                  "picking-incomplete",
+                  "picking-complete",
+                  "incoming",
+                  "all-history"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "Filters",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dataset_version": {
+            "const": "wwi-data-v1-2026-10-08",
+            "default": "wwi-data-v1-2026-10-08",
+            "title": "Dataset Version",
+            "type": "string"
+          },
+          "scenario_id": {
+            "default": "base",
+            "enum": [
+              "base",
+              "no_incoming_v1"
+            ],
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "date_basis": {
+            "default": "order_date",
+            "enum": [
+              "order_date",
+              "expected_delivery_date",
+              "picking_completed_time",
+              "purchase_order_date",
+              "invoice_date",
+              "confirmed_delivery_time",
+              "none"
+            ],
+            "title": "Date Basis",
+            "type": "string"
+          },
+          "start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Start"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "End"
+          },
+          "filters": {
+            "$ref": "#/$defs/Filters"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 200,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "maximum": 1000000,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          }
+        },
+        "title": "Request",
+        "type": "object"
+      },
+      "returns": "rows, caption"
+    },
+    {
+      "name": "contract",
+      "method": "GET",
+      "path": "/api/contract",
+      "purpose": "All Contract documents.",
+      "when_to_use": "Once per session.",
+      "input_schema": null,
+      "returns": "documents"
+    },
+    {
+      "name": "navigate",
+      "method": "CLIENT",
+      "path": "location.hash",
+      "purpose": "Open a page in the app (deep links from analyze/related, or #/item/{id} etc.).",
+      "when_to_use": "After computing an answer, to show its evidence.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "deep_link": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "deep_link"
+        ]
+      },
+      "returns": "page renders; then read_app_state"
+    },
+    {
+      "name": "read_app_state",
+      "method": "CLIENT",
+      "path": "window.wwiState",
+      "purpose": "Read what the app actually applied (route, request).",
+      "when_to_use": "After every navigate: compare with what you intended; mismatch = failure.",
+      "input_schema": null,
+      "returns": "state object"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "dataset_version": {
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "scenario_id": {
+      "default": "base",
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "supported_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Supported Operations",
+      "type": "array"
+    },
+    "context_propagation": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Context Propagation",
+      "type": "object"
+    },
+    "contract_version": {
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "query_catalog_version": {
+      "title": "Query Catalog Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "supported_scenario_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Supported Scenario Ids",
+      "type": "array"
+    },
+    "package_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Package Version"
+    },
+    "documents": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Documents",
+      "type": "array"
+    },
+    "money_published": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Money Published"
+    }
+  },
+  "required": [
+    "dataset_version",
+    "supported_operations",
+    "context_propagation",
+    "contract_version",
+    "query_catalog_version",
+    "schema_version",
+    "supported_scenario_ids"
+  ],
+  "title": "Version",
+  "type": "object"
+}

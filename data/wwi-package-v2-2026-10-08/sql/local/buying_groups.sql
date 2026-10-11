@@ -1,0 +1,1 @@
+SELECT COALESCE(g.BuyingGroupName,'no buying group') CurrentGroup,COUNT(*) Orders FROM raw.Sales_Orders o JOIN raw.Sales_Customers c USING(CustomerID) LEFT JOIN raw.Sales_BuyingGroups g USING(BuyingGroupID) GROUP BY 1 ORDER BY 1

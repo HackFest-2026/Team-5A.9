@@ -1,0 +1,3 @@
+{"t": 0.0, "kind": "turn", "text": "add a new order on order 1 custoner 832 and backorderOder 45"}
+{"t": 4.845, "kind": "understand", "intent": {"action": "refuse", "measure_id": "unchanged", "group_by": "unchanged", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": "change data", "playbook": null}, "latency": 4.84, "retries": 0}
+{"t": 4.846, "kind": "result", "status": "refuse", "op": "refuse", "link": null, "latency": 4.85, "llm_calls": 1}

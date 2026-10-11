@@ -1,0 +1,1 @@
+SELECT COALESCE(cat.CustomerCategoryName,'unknown') CurrentSoldToCategory,COUNT(*) Orders FROM raw.Sales_Orders o LEFT JOIN raw.Sales_Customers c USING(CustomerID) LEFT JOIN raw.Sales_CustomerCategories cat USING(CustomerCategoryID) GROUP BY 1 ORDER BY 1

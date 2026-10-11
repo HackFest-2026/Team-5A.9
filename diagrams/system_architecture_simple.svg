@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="940" viewBox="0 0 1920 940" font-family="Calibri, Carlito, Segoe UI, Arial, sans-serif">
+  <title>System architecture in three phases</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+  <rect width="1920" height="940" fill="#ffffff"/>
+
+  <!-- PHASE 1 -->
+  <rect x="70" y="2" width="1846" height="228" rx="8" fill="#f2f6ff" stroke="#2563eb" stroke-width="4" stroke-dasharray="18 10"/>
+  <rect x="2" y="2" width="64" height="228" fill="#2563eb"/>
+  <text transform="rotate(-90 34 116)" x="34" y="128" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">PHASE 1</text>
+  <text x="100" y="52" font-size="36" font-weight="700" fill="#1d4ed8">Prepare once: describe the app</text>
+
+  <rect x="100" y="76" width="520" height="136" rx="16" fill="#ffffff" stroke="#3b6fd8" stroke-width="3"/>
+  <text x="360" y="133" font-size="38" font-weight="700" fill="#0f172a" text-anchor="middle">Your business app</text>
+  <text x="360" y="180" font-size="34" fill="#475569" text-anchor="middle">pages, filters, data</text>
+
+  <line x1="620" y1="144" x2="788" y2="144" stroke="#334155" stroke-width="5" marker-end="url(#a)"/>
+
+  <rect x="790" y="76" width="1110" height="136" rx="16" fill="#fff1e6" stroke="#c2410c" stroke-width="4"/>
+  <text x="1345" y="131" font-size="40" font-weight="700" fill="#9a3412" text-anchor="middle">★ Application Contract</text>
+  <text x="1345" y="180" font-size="34" fill="#1f2937" text-anchor="middle">every page, filter and measure, and what each means</text>
+
+  <!-- PHASE 2 -->
+  <rect x="70" y="252" width="1846" height="408" rx="8" fill="#f8f5ff" stroke="#7c3aed" stroke-width="4" stroke-dasharray="18 10"/>
+  <rect x="2" y="252" width="64" height="408" fill="#7c3aed"/>
+  <text transform="rotate(-90 34 456)" x="34" y="468" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">PHASE 2</text>
+  <text x="100" y="302" font-size="36" font-weight="700" fill="#6d28d9">Answer a question: five steps</text>
+
+  <g stroke-width="3">
+    <rect x="100" y="322" width="300" height="172" rx="16" fill="#ffffff" stroke="#7c3aed"/>
+    <rect x="475" y="322" width="300" height="172" rx="16" fill="#ffffff" stroke="#7c3aed"/>
+    <rect x="850" y="322" width="300" height="172" rx="16" fill="#ffffff" stroke="#7c3aed"/>
+    <rect x="1225" y="322" width="300" height="172" rx="16" fill="#fff1e6" stroke="#c2410c" stroke-width="4"/>
+    <rect x="1600" y="322" width="300" height="172" rx="16" fill="#ffffff" stroke="#7c3aed"/>
+  </g>
+  <g font-size="38" font-weight="700" fill="#0f172a" text-anchor="middle">
+    <text x="250" y="378">1  Ask</text>
+    <text x="625" y="378">2  Find page</text>
+    <text x="1000" y="378">3  Set view</text>
+    <text x="1375" y="378" fill="#9a3412">4  Check it</text>
+    <text x="1750" y="378">5  Answer</text>
+  </g>
+  <g font-size="34" fill="#334155" text-anchor="middle">
+    <text x="250" y="426">a question in</text><text x="250" y="466">plain words</text>
+    <text x="625" y="426">or say “none</text><text x="625" y="466">fits”</text>
+    <text x="1000" y="426">one URL change,</text><text x="1000" y="466">no clicking</text>
+    <text x="1375" y="426">did the view</text><text x="1375" y="466">really apply?</text>
+    <text x="1750" y="426">figures with</text><text x="1750" y="466">their sources</text>
+  </g>
+  <g fill="#64748b">
+    <path d="M422,388 l24,20 l-24,20 z"/>
+    <path d="M797,388 l24,20 l-24,20 z"/>
+    <path d="M1172,388 l24,20 l-24,20 z"/>
+    <path d="M1547,388 l24,20 l-24,20 z"/>
+  </g>
+
+  <!-- What each step uses -->
+  <g stroke-width="4" fill="none">
+    <line x1="625" y1="562" x2="625" y2="496" stroke="#c2410c" marker-end="url(#ao)"/>
+    <line x1="1000" y1="562" x2="1000" y2="496" stroke="#c2410c" marker-end="url(#ao)"/>
+    <line x1="1375" y1="562" x2="1375" y2="496" stroke="#334155" marker-end="url(#a)"/>
+    <line x1="1750" y1="562" x2="1750" y2="496" stroke="#334155" marker-end="url(#a)"/>
+  </g>
+  <rect x="475" y="562" width="675" height="70" rx="35" fill="#fff1e6" stroke="#c2410c" stroke-width="3"/>
+  <text x="812" y="609" font-size="34" font-weight="700" fill="#9a3412" text-anchor="middle">uses the Contract</text>
+  <rect x="1225" y="562" width="300" height="70" rx="35" fill="#eef4ff" stroke="#3b6fd8" stroke-width="3"/>
+  <text x="1375" y="609" font-size="34" font-weight="700" fill="#1e3a8a" text-anchor="middle">live page (DOM)</text>
+  <rect x="1600" y="562" width="300" height="70" rx="35" fill="#eef2f6" stroke="#64748b" stroke-width="3"/>
+  <text x="1750" y="609" font-size="34" font-weight="700" fill="#0f172a" text-anchor="middle">business data</text>
+
+  <!-- PHASE 3 -->
+  <rect x="70" y="682" width="1846" height="256" rx="8" fill="#effaf5" stroke="#059669" stroke-width="4" stroke-dasharray="18 10"/>
+  <rect x="2" y="682" width="64" height="256" fill="#059669"/>
+  <text transform="rotate(-90 34 810)" x="34" y="822" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">PHASE 3</text>
+  <text x="100" y="730" font-size="36" font-weight="700" fill="#047857">Prove it works</text>
+
+  <rect x="100" y="752" width="520" height="166" rx="16" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+  <text x="360" y="823" font-size="38" font-weight="700" fill="#064e3b" text-anchor="middle">Test questions</text>
+  <text x="360" y="870" font-size="34" fill="#334155" text-anchor="middle">with known answers</text>
+
+  <rect x="720" y="752" width="580" height="166" rx="16" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+  <text x="1010" y="823" font-size="38" font-weight="700" fill="#064e3b" text-anchor="middle">★ Replay them all</text>
+  <text x="1010" y="870" font-size="34" fill="#334155" text-anchor="middle">with our checks on and off</text>
+
+  <rect x="1400" y="752" width="500" height="166" rx="16" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+  <text x="1650" y="823" font-size="38" font-weight="700" fill="#064e3b" text-anchor="middle">Scorecard</text>
+  <text x="1650" y="870" font-size="34" fill="#334155" text-anchor="middle">page, view, figures</text>
+
+  <g stroke="#334155" stroke-width="5" marker-end="url(#a)">
+    <line x1="620" y1="835" x2="718" y2="835"/>
+    <line x1="1300" y1="835" x2="1398" y2="835"/>
+  </g>
+</svg>

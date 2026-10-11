@@ -1,0 +1,1 @@
+SELECT COALESCE(cat.CustomerCategoryName,'unknown') CurrentSoldToCategory,COUNT(*) Lines,SUM(l.ExtendedPrice-l.TaxAmount) ExTaxAmount FROM raw.Sales_Invoices i JOIN raw.Sales_InvoiceLines l USING(InvoiceID) LEFT JOIN raw.Sales_Customers c ON c.CustomerID=i.CustomerID LEFT JOIN raw.Sales_CustomerCategories cat USING(CustomerCategoryID) GROUP BY 1 ORDER BY 1

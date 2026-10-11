@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS EstimatedOpenLines FROM raw.Sales_OrderLines l JOIN raw.Sales_Orders o USING(OrderID) WHERE o.OrderDate<? AND (l.PickingCompletedWhen IS NULL OR l.PickingCompletedWhen>=?)

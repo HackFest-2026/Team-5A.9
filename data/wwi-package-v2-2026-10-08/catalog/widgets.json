@@ -1,0 +1,366 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "scenario_id": "base",
+  "supported_operations": [
+    "read_metric",
+    "read_records",
+    "read_chart",
+    "navigate_local_view",
+    "resolve_explicit_id"
+  ],
+  "context_propagation": {
+    "item": "retain explicit selected item across holdings/purchasing/supplier",
+    "period": "retain order-period intent; undated holdings do not apply dates and say so explicitly",
+    "scenario": "change resets entity selections and query scope",
+    "selection": "new selection replaces stale item/order/customer IDs",
+    "purchasing": "incoming vs all-history is explicit; related by item, not allocated"
+  },
+  "items": [
+    {
+      "id": "monthly-orders",
+      "type": "chart",
+      "view_id": "overview",
+      "query_id": "monthly-orders",
+      "measure_id": "M01",
+      "display_unit": "orders",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "category-orders",
+      "type": "chart",
+      "view_id": "overview",
+      "query_id": "category-orders",
+      "measure_id": "M12_orders_category",
+      "display_unit": "orders",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "top-unpicked",
+      "type": "chart",
+      "view_id": "fulfilment",
+      "query_id": "top-unpicked",
+      "measure_id": "M02",
+      "display_unit": "unpicked item units",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "picking-status",
+      "type": "chart",
+      "view_id": "fulfilment",
+      "query_id": "picking-status",
+      "measure_id": "M01",
+      "display_unit": "distinct orders",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "holdings-reorder",
+      "type": "chart",
+      "view_id": "supply",
+      "query_id": "holdings-reorder",
+      "measure_id": "M04",
+      "display_unit": "item units",
+      "filters": [
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "incoming-supplier",
+      "type": "chart",
+      "view_id": "supply",
+      "query_id": "incoming-supplier",
+      "measure_id": "M05",
+      "display_unit": "item units (count)",
+      "filters": [
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "purchase_order_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "order",
+        "order-line",
+        "item",
+        "purchase",
+        "purchase-line",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "order-card",
+      "type": "metric",
+      "view_id": "overview",
+      "query_id": "M01",
+      "measure_id": "M01",
+      "display_unit": "orders",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "order",
+        "item",
+        "purchase"
+      ],
+      "loading": "Loading",
+      "empty": "Zero matching records",
+      "error": "Visible failure and cleared stale result"
+    },
+    {
+      "id": "unpicked-orders-card",
+      "type": "metric",
+      "view_id": "overview",
+      "query_id": "M03",
+      "measure_id": "M03",
+      "display_unit": "orders",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "order",
+        "item",
+        "purchase"
+      ],
+      "loading": "Loading",
+      "empty": "Zero matching records",
+      "error": "Visible failure and cleared stale result"
+    },
+    {
+      "id": "unpicked-units-card",
+      "type": "metric",
+      "view_id": "fulfilment",
+      "query_id": "M02",
+      "measure_id": "M02",
+      "display_unit": "item units (count, unlike goods)",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status"
+      ],
+      "record_links": [
+        "order",
+        "item",
+        "purchase"
+      ],
+      "loading": "Loading",
+      "empty": "Zero matching records",
+      "error": "Visible failure and cleared stale result"
+    },
+    {
+      "id": "incoming-card",
+      "type": "metric",
+      "view_id": "supply",
+      "query_id": "M05",
+      "measure_id": "M05",
+      "display_unit": "item units (count, unlike goods)",
+      "filters": [
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "purchase_order_id",
+        "status"
+      ],
+      "record_links": [
+        "order",
+        "item",
+        "purchase"
+      ],
+      "loading": "Loading",
+      "empty": "Zero matching records",
+      "error": "Visible failure and cleared stale result"
+    },
+    {
+      "id": "analysis-total",
+      "type": "metric",
+      "view_id": "analysis",
+      "query_id": "analyze",
+      "measure_id": null,
+      "display_unit": "unit of the selected measure",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "customer_category_id",
+        "buying_group_id",
+        "state_province_id",
+        "sales_territory",
+        "salesperson_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "item",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "analysis-breakdown",
+      "type": "chart",
+      "view_id": "analysis",
+      "query_id": "analyze",
+      "measure_id": null,
+      "display_unit": "unit of the selected measure",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "customer_category_id",
+        "buying_group_id",
+        "state_province_id",
+        "sales_territory",
+        "salesperson_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "item",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    },
+    {
+      "id": "analysis-change",
+      "type": "table",
+      "view_id": "analysis",
+      "query_id": "analyze",
+      "measure_id": null,
+      "display_unit": "change in the unit of the selected measure",
+      "filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "customer_category_id",
+        "buying_group_id",
+        "state_province_id",
+        "sales_territory",
+        "salesperson_id",
+        "status"
+      ],
+      "record_links": [
+        "customer",
+        "item",
+        "supplier"
+      ],
+      "loading": "Loading verified data…",
+      "empty": "No matching source records under the applied scope",
+      "error": "Display validation/query failure; do not show stale values as completed"
+    }
+  ]
+}

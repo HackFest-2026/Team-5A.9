@@ -1,0 +1,1 @@
+SELECT [OrderLineID],[OrderID],[StockItemID],[Description],[PackageTypeID],[Quantity],[UnitPrice],[TaxRate],[PickedQuantity],CONVERT(nvarchar(33),[PickingCompletedWhen],126) AS [PickingCompletedWhen],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Sales].[OrderLines] ORDER BY [OrderLineID]

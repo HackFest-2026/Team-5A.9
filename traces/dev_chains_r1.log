@@ -1,0 +1,45 @@
+chains run 1/1 done (260s)
+{
+ "chains": {
+  "n": 31,
+  "chain_success_pct": 6.5,
+  "step_pass_pct": 34.5,
+  "destination_acc_pct": 42.5,
+  "ui_state_acc_pct": 42.5,
+  "resolution_acc_pct": 95.4,
+  "analytic_acc_pct": 50.6,
+  "faithfulness_pct": 94.3,
+  "hallucinated_actions_total": 22,
+  "hallucinated_action_rate_pct": 23.0,
+  "avg_steps_per_chain": 2.81,
+  "avg_tool_calls_per_step": 1.31,
+  "avg_llm_calls_per_step": 2.79,
+  "latency_mean_s": 20.22,
+  "latency_p95_s": 37.0,
+  "template_answer_pct": 12.9,
+  "by_family": {
+   "change-explanation": "0/5",
+   "customer-by-name": "1/4",
+   "follow-up-context": "1/5",
+   "invalid-combination": "0/2",
+   "money": "0/4",
+   "overlapping-dimension": "0/2",
+   "supplier-exposure": "0/3",
+   "synthetic-fixture": "0/1",
+   "unpicked-triage": "0/4",
+   "unsupported-causal": "0/1"
+  }
+ },
+ "pass_at_1_pct": 6.5,
+ "pass_pow_1_pct": 6.5,
+ "config": {
+  "split": "dev",
+  "plan_mode": "llm",
+  "gates": true,
+  "model": "qwen2.5-14b",
+  "llm_answer": true,
+  "k": 1,
+  "step_budget": 8,
+  "wall_seconds": 260.3
+ }
+}

@@ -1,0 +1,1 @@
+SELECT [StateProvinceID],[StateProvinceCode],[StateProvinceName],[CountryID],[SalesTerritory],[LatestRecordedPopulation],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Application].[StateProvinces] ORDER BY [StateProvinceID]

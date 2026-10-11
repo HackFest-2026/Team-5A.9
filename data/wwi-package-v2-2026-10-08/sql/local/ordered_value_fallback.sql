@@ -1,0 +1,1 @@
+SELECT strftime(OrderDate,'%Y-%m') AS Month,SUM(CAST(l.Quantity AS DECIMAL(38,2))*l.UnitPrice) OrderedValue FROM raw.Sales_Orders o JOIN raw.Sales_OrderLines l USING(OrderID) GROUP BY 1 ORDER BY 1

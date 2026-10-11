@@ -1,0 +1,7 @@
+{"t": 0.0, "kind": "turn", "text": "Chart orders in May 2016 by territory"}
+{"t": 13.123, "kind": "understand", "intent": {"action": "analyze", "measure_id": "M01", "group_by": "sales_territory", "period": {"kind": "month", "year": 2016, "month": 5}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 13.12, "retries": 0}
+{"t": 13.123, "kind": "expectation", "action": "analyze", "request": {"measure_id": "M01", "group_by": "sales_territory", "scenario_id": "base", "date_basis": "order_date", "start": "2016-05-01", "end": "2016-06-01"}}
+{"t": 13.166, "kind": "tool_call", "tool": "analyze", "args": {"measure_id": "M01", "date_basis": "order_date", "start": "2016-05-01", "end": "2016-06-01", "group_by": "sales_territory", "filters": {}, "scenario_id": "base"}, "ok": true, "error": null, "latency": 0.043}
+{"t": 13.167, "kind": "finish_check", "ok": true, "violations": []}
+{"t": 23.718, "kind": "answer_draft", "draft": 0, "ok": true, "latency": 10.55, "violations": []}
+{"t": 23.718, "kind": "result", "status": "answered", "op": "analyze", "link": "#/analysis?measure_id=M01&date_basis=order_date&group_by=sales_territory&sort=value_desc&top_n=10&scenario_id=base&start=2016-05-01&end=2016-06-01", "latency": 23.72, "llm_calls": 2}

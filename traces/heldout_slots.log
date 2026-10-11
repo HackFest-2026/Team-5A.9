@@ -1,0 +1,45 @@
+chains run 1/1 done (293s)
+{
+ "chains": {
+  "n": 15,
+  "chain_success_pct": 20.0,
+  "step_pass_pct": 52.5,
+  "destination_acc_pct": 52.5,
+  "ui_state_acc_pct": 55.0,
+  "resolution_acc_pct": 95.0,
+  "analytic_acc_pct": 60.0,
+  "faithfulness_pct": 100.0,
+  "hallucinated_actions_total": 2,
+  "hallucinated_action_rate_pct": 5.0,
+  "avg_steps_per_chain": 2.67,
+  "avg_tool_calls_per_step": 1.25,
+  "avg_llm_calls_per_step": 1.82,
+  "latency_mean_s": 13.58,
+  "latency_p95_s": 35.99,
+  "template_answer_pct": 6.5,
+  "by_family": {
+   "change-explanation": "1/2",
+   "customer-by-name": "0/3",
+   "follow-up-context": "0/2",
+   "invalid-combination": "1/1",
+   "money": "0/2",
+   "overlapping-dimension": "0/1",
+   "supplier-exposure": "1/1",
+   "synthetic-fixture": "0/1",
+   "unpicked-triage": "0/1",
+   "unsupported-causal": "0/1"
+  }
+ },
+ "pass_at_1_pct": 20.0,
+ "pass_pow_1_pct": 20.0,
+ "config": {
+  "split": "holdout",
+  "plan_mode": "slots",
+  "gates": true,
+  "model": "deepseek-r1-32b",
+  "llm_answer": true,
+  "k": 1,
+  "step_budget": 8,
+  "wall_seconds": 292.6
+ }
+}

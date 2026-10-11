@@ -1,0 +1,88 @@
+{
+  "beyond_browsing": {
+    "arxiv": "2410.16464",
+    "s2_title": "Beyond Browsing: API-Based Web Agents",
+    "s2_citationCount": 88,
+    "s2_rows": 88,
+    "openalex_ids": [
+      "https://openalex.org/W4404260905",
+      "https://openalex.org/W4412888511"
+    ],
+    "openalex_cited_by": 7,
+    "openalex_rows": 7,
+    "merged": 90
+  },
+  "vacp": {
+    "arxiv": "2603.29322",
+    "s2_title": "VACP: Visual Analytics Context Protocol",
+    "s2_citationCount": 1,
+    "s2_rows": 1,
+    "openalex_ids": [
+      "https://openalex.org/W7147272451"
+    ],
+    "openalex_cited_by": 0,
+    "openalex_rows": 0,
+    "merged": 1
+  },
+  "embewebagent": {
+    "arxiv": "2602.14865",
+    "s2_title": "EmbeWebAgent: Embedding Web Agents into Any Customized UI",
+    "s2_citationCount": 0,
+    "s2_rows": 0,
+    "openalex_ids": [
+      "https://openalex.org/W7129509914"
+    ],
+    "openalex_cited_by": 0,
+    "openalex_rows": 0,
+    "merged": 0
+  },
+  "unbrowse": {
+    "arxiv": "2604.00694",
+    "s2_title": "Internal APIs Are All You Need: Shadow APIs, Shared Discovery, and the Case Against Browser-First Agent Architectures",
+    "s2_citationCount": 0,
+    "s2_rows": 0,
+    "openalex_ids": [
+      "https://openalex.org/W7148370311"
+    ],
+    "openalex_cited_by": 0,
+    "openalex_rows": 0,
+    "merged": 0
+  },
+  "typed_actions": {
+    "arxiv": "2602.17245",
+    "s2_title": "Web Agents Should Use Typed Actions Instead of Click-Based Browsing",
+    "s2_citationCount": 0,
+    "s2_rows": 0,
+    "openalex_ids": [
+      "https://openalex.org/W7130729999"
+    ],
+    "openalex_cited_by": 0,
+    "openalex_rows": 0,
+    "merged": 0
+  },
+  "appworld": {
+    "arxiv": "2407.18901",
+    "s2_title": "AppWorld: A Controllable World of Apps and People for Benchmarking Interactive Coding Agents",
+    "s2_citationCount": 409,
+    "s2_rows": 409,
+    "openalex_ids": [
+      "https://openalex.org/W4402467036",
+      "https://openalex.org/W4402671485"
+    ],
+    "openalex_cited_by": 14,
+    "openalex_rows": 14,
+    "merged": 411
+  },
+  "tau_bench": {
+    "arxiv": "2406.12045",
+    "s2_title": "\u03c4-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+    "s2_citationCount": 1407,
+    "s2_rows": 1407,
+    "openalex_ids": [
+      "https://openalex.org/W4399836817"
+    ],
+    "openalex_cited_by": 7,
+    "openalex_rows": 7,
+    "merged": 1409
+  }
+}

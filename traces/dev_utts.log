@@ -1,0 +1,26 @@
+chains run 1/1 done (0s)
+utterances done (2220s)
+{
+ "utterances": {
+  "n": 218,
+  "intent_acc_pct": 85.3,
+  "slot_acc_pct": 81.7,
+  "resolution_acc_pct": 99.5,
+  "view_acc_pct": 79.8,
+  "total_acc_pct": 75.7,
+  "faithfulness_pct": 100.0,
+  "pass_pct": 64.2,
+  "hallucinated_action_rate_pct": 4.1,
+  "latency_mean_s": 20.31
+ },
+ "config": {
+  "split": "dev",
+  "plan_mode": "slots",
+  "gates": true,
+  "model": "deepseek-r1-32b",
+  "llm_answer": true,
+  "k": 1,
+  "step_budget": 8,
+  "wall_seconds": 2219.9
+ }
+}

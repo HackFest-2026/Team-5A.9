@@ -1,0 +1,1 @@
+SELECT COALESCE(SUM(l.UnpickedUnits),0)::BIGINT AS value FROM analytics.order_lines l WHERE l.ScenarioID=?

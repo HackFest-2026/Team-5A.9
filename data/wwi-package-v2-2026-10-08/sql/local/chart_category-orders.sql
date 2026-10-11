@@ -1,0 +1,1 @@
+SELECT COALESCE(cat.CustomerCategoryName,'unknown') category,COUNT(DISTINCT l.OrderID)::BIGINT AS value FROM analytics.order_lines l LEFT JOIN raw.Sales_Customers c ON c.CustomerID=l.CustomerID LEFT JOIN raw.Sales_CustomerCategories cat USING(CustomerCategoryID) WHERE l.ScenarioID=? GROUP BY 1 ORDER BY 1

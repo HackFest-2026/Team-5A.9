@@ -1,0 +1,3 @@
+{"t": 0.0, "kind": "turn", "text": "Who supplies it?"}
+{"t": 4.143, "kind": "understand", "intent": {"action": "related", "measure_id": "unchanged", "group_by": "unchanged", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": 1, "records_view": null, "related_type": "supplier", "page": null, "scenario_id": "base", "glossary_term": null, "playbook": null}, "latency": 4.14, "retries": 0}
+{"t": 4.143, "kind": "result", "status": "clarify", "op": "clarify", "link": null, "latency": 4.14, "llm_calls": 1}

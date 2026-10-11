@@ -1,0 +1,3 @@
+{"t": 0.0, "kind": "turn", "text": "now delete oirders on id 832"}
+{"t": 3.265, "kind": "understand", "intent": {"action": "refuse", "measure_id": "unchanged", "group_by": "unchanged", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": "change data", "playbook": null}, "latency": 3.26, "retries": 0}
+{"t": 3.265, "kind": "result", "status": "refuse", "op": "refuse", "link": null, "latency": 3.27, "llm_calls": 1}

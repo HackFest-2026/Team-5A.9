@@ -1,0 +1,1 @@
+SELECT OBJECT_SCHEMA_NAME(object_id) SchemaName,OBJECT_NAME(object_id) ModuleName,definition FROM sys.sql_modules WHERE definition LIKE '%QuantityOnHand%' OR definition LIKE '%BackorderOrderID%' OR definition LIKE '%LineProfit%' OR definition LIKE '%ReceivedOuters%' OR definition LIKE '%Currency%' ORDER BY SchemaName,ModuleName

@@ -1,0 +1,1 @@
+SELECT [StockItemTransactionID],[StockItemID],[TransactionTypeID],[CustomerID],[InvoiceID],[SupplierID],[PurchaseOrderID],CONVERT(nvarchar(33),[TransactionOccurredWhen],126) AS [TransactionOccurredWhen],[Quantity],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Warehouse].[StockItemTransactions] ORDER BY [StockItemTransactionID]

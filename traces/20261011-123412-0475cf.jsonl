@@ -1,0 +1,8 @@
+{"t": 0.0, "kind": "turn", "text": "add on sutomers"}
+{"t": 3.207, "kind": "understand", "intent": {"action": "analyze", "measure_id": "M01", "group_by": "customer", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 3.2, "retries": 0}
+{"t": 3.207, "kind": "sanitize", "dropped": ["group_by=customer"]}
+{"t": 3.207, "kind": "expectation", "action": "analyze", "request": {"measure_id": "M01", "filters": {"order_id": 832}, "scenario_id": "base", "date_basis": "order_date"}}
+{"t": 3.235, "kind": "tool_call", "tool": "analyze", "args": {"measure_id": "M01", "date_basis": "order_date", "group_by": "none", "filters": {"order_id": 832}, "scenario_id": "base"}, "ok": true, "error": null, "latency": 0.028}
+{"t": 3.235, "kind": "finish_check", "ok": true, "violations": []}
+{"t": 4.029, "kind": "answer_draft", "draft": 0, "ok": true, "latency": 0.79, "violations": []}
+{"t": 4.029, "kind": "result", "status": "answered", "op": "analyze", "link": "#/analysis?measure_id=M01&date_basis=order_date&group_by=none&sort=value_desc&top_n=10&scenario_id=base&order_id=832", "latency": 4.03, "llm_calls": 2}

@@ -1,0 +1,128 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "scenario_id": "base",
+  "supported_operations": [
+    "read_metric",
+    "read_records",
+    "read_chart",
+    "navigate_local_view",
+    "resolve_explicit_id"
+  ],
+  "context_propagation": {
+    "item": "retain explicit selected item across holdings/purchasing/supplier",
+    "period": "retain order-period intent; undated holdings do not apply dates and say so explicitly",
+    "scenario": "change resets entity selections and query scope",
+    "selection": "new selection replaces stale item/order/customer IDs",
+    "purchasing": "incoming vs all-history is explicit; related by item, not allocated"
+  },
+  "items": [
+    {
+      "id": "monthly-orders",
+      "title": "Monthly orders created",
+      "widget_id": "monthly-orders",
+      "measure_id": "M01",
+      "query_file": "sql/local/chart_monthly-orders.sql",
+      "evidence_file": "evidence/charts/monthly-orders.csv",
+      "axes": {
+        "x": "month",
+        "y": "orders"
+      },
+      "sorting": [
+        "calendar month ascending"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "order records in selected month",
+      "caption": "Date basis: order_date. Related purchase lines are not customer allocations. Selected partial months and archive-end month are explicitly flagged in the response and tooltip."
+    },
+    {
+      "id": "category-orders",
+      "title": "Orders by current customer category",
+      "widget_id": "category-orders",
+      "measure_id": "M12_orders_category",
+      "query_file": "sql/local/chart_category-orders.sql",
+      "evidence_file": "evidence/charts/category-orders.csv",
+      "axes": {
+        "x": "current category",
+        "y": "orders"
+      },
+      "sorting": [
+        "category ascending"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "customer/order records",
+      "caption": "Current sold-to customer classification. Date basis: order_date. Related purchase lines are not customer allocations."
+    },
+    {
+      "id": "top-unpicked",
+      "title": "Items by stored unpicked units",
+      "widget_id": "top-unpicked",
+      "measure_id": "M02",
+      "query_file": "sql/local/chart_top-unpicked.sql",
+      "evidence_file": "evidence/charts/top-unpicked.csv",
+      "axes": {
+        "x": "stock item",
+        "y": "unpicked item units"
+      },
+      "sorting": [
+        "units descending; item ID tie break"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "item and contributing order lines",
+      "caption": "Stored sample state. Unlike item units are count totals, not physical volume or money. Date basis: order_date. Related purchase lines are not customer allocations."
+    },
+    {
+      "id": "picking-status",
+      "title": "Picking status of created orders",
+      "widget_id": "picking-status",
+      "measure_id": "M01",
+      "query_file": "sql/local/chart_picking-status.sql",
+      "evidence_file": "evidence/charts/picking-status.csv",
+      "axes": {
+        "x": "order picking status",
+        "y": "distinct orders"
+      },
+      "sorting": [
+        "label ascending"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "explicit complete/incomplete buttons apply header completion status and show matching underlying lines",
+      "caption": "Date basis: order_date. Related purchase lines are not customer allocations."
+    },
+    {
+      "id": "holdings-reorder",
+      "title": "Stored holdings and reorder level",
+      "widget_id": "holdings-reorder",
+      "measure_id": "M04",
+      "query_file": "sql/local/chart_holdings-reorder.sql",
+      "evidence_file": "evidence/charts/holdings-reorder.csv",
+      "axes": {
+        "x": "stock item",
+        "y": "item units"
+      },
+      "sorting": [
+        "item ID ascending"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "stock item detail",
+      "caption": "Stored sample state. Date basis: none. Related purchase lines are not customer allocations."
+    },
+    {
+      "id": "incoming-supplier",
+      "title": "Related incoming units by actual supplier",
+      "widget_id": "incoming-supplier",
+      "measure_id": "M05",
+      "query_file": "sql/local/chart_incoming-supplier.sql",
+      "evidence_file": "evidence/charts/incoming-supplier.csv",
+      "axes": {
+        "x": "actual supplier",
+        "y": "item units (count)"
+      },
+      "sorting": [
+        "units descending; supplier ID tie break"
+      ],
+      "comparison": "only same unit, grain, period basis and scenario; zero denominator -> unknown percent change",
+      "drill_down": "purchase lines and supplier",
+      "caption": "Stored sample state. Unlike item units are count totals, not physical volume or money. Date basis: purchase_order_date. Related purchase lines are not customer allocations."
+    }
+  ]
+}

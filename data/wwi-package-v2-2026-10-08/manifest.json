@@ -1,0 +1,1941 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "package_version": "2.0.0",
+  "source": {
+    "ServerName": "DESKTOP-K46JKQF",
+    "Edition": "Enterprise Evaluation Edition (64-bit)",
+    "ProductVersion": "13.0.5026.0",
+    "DatabaseName": "WideWorldImporters",
+    "SourceLocalTime": "2026-10-08T00:44:08.7403295"
+  },
+  "business_date_bounds": {
+    "start": "2013-01-01",
+    "end_inclusive": "2016-05-31"
+  },
+  "source_schema_sha256": "0d0411ea18958e7f7c2d894f2da51dc4c22b97f93afee74b8c57407e705c5054",
+  "files": [
+    {
+      "path": "data/raw/Sales.Customers.parquet",
+      "table": "Sales.Customers",
+      "rows": 663,
+      "columns": [
+        {
+          "name": "CustomerID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "BillToCustomerID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerCategoryID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "BuyingGroupID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryMethodID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PostalCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CreditLimit",
+          "type": "decimal128(18, 2)",
+          "nullable": true
+        },
+        {
+          "name": "AccountOpenedDate",
+          "type": "date32[day]",
+          "nullable": false
+        },
+        {
+          "name": "StandardDiscountPercentage",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "IsStatementSent",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "IsOnCreditHold",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "PaymentDays",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PhoneNumber",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "FaxNumber",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryRun",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "RunPosition",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "WebsiteURL",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PostalPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "10db6e79cd0ef6f4255031d141d63dcb8785999b12a3f202e1a3928053fb1c04",
+      "bytes": 56437,
+      "exported_utc": "2026-10-07T19:19:42.795734+00:00"
+    },
+    {
+      "path": "data/raw/Sales.Orders.parquet",
+      "table": "Sales.Orders",
+      "rows": 73595,
+      "columns": [
+        {
+          "name": "OrderID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SalespersonPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PickedByPersonID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "ContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "BackorderOrderID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "OrderDate",
+          "type": "date32[day]",
+          "nullable": false
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "type": "date32[day]",
+          "nullable": false
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "IsUndersupplyBackordered",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryInstructions",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "InternalComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "type": "timestamp[us]",
+          "nullable": true
+        },
+        {
+          "name": "PickingCompletedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "fdaaafe1589609ac67ff35a983c26be18bedeacacf1e2827c1486a80f602d241",
+      "bytes": 1042890,
+      "exported_utc": "2026-10-07T19:19:49.418270+00:00"
+    },
+    {
+      "path": "data/raw/Sales.OrderLines.parquet",
+      "table": "Sales.OrderLines",
+      "rows": 231412,
+      "columns": [
+        {
+          "name": "OrderLineID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "OrderID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PackageTypeID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Quantity",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": true
+        },
+        {
+          "name": "TaxRate",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "PickedQuantity",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "type": "timestamp[us]",
+          "nullable": true
+        },
+        {
+          "name": "PickingCompletedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "4c0ab081709f6b6f559b45dd30b9c2252a67e8b166a46023ed19244c3dfc9d6e",
+      "bytes": 2796573,
+      "exported_utc": "2026-10-07T19:20:49.934871+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.StockItems.parquet",
+      "table": "Warehouse.StockItems",
+      "rows": 227,
+      "columns": [
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "SupplierID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ColorID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "UnitPackageID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "OuterPackageID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Brand",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "Size",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "LeadTimeDays",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "QuantityPerOuter",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "IsChillerStock",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "Barcode",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "TaxRate",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": false
+        },
+        {
+          "name": "RecommendedRetailPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": true
+        },
+        {
+          "name": "TypicalWeightPerUnit",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "MarketingComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "InternalComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "CustomFields",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "Tags",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "SearchDetails",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "40e351640583a4189ca992c1a40a282eb8707597e953670a28b218f6863b05eb",
+      "bytes": 16917,
+      "exported_utc": "2026-10-07T19:20:51.163984+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.StockItemHoldings.parquet",
+      "table": "Warehouse.StockItemHoldings",
+      "rows": 227,
+      "columns": [
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "QuantityOnHand",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "BinLocation",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastStocktakeQuantity",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastCostPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": false
+        },
+        {
+          "name": "ReorderLevel",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "TargetStockLevel",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "7bbc7b1ed606a1a99e9531495a66182b0ed922b7f4c8d36901efbef049486202",
+      "bytes": 6492,
+      "exported_utc": "2026-10-07T19:20:51.194179+00:00"
+    },
+    {
+      "path": "data/raw/Purchasing.PurchaseOrders.parquet",
+      "table": "Purchasing.PurchaseOrders",
+      "rows": 2074,
+      "columns": [
+        {
+          "name": "PurchaseOrderID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SupplierID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "OrderDate",
+          "type": "date32[day]",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryMethodID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "type": "date32[day]",
+          "nullable": true
+        },
+        {
+          "name": "SupplierReference",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "IsOrderFinalized",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "InternalComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "f460f9e1ea1899675274a9ccffaca1fd898cf6f8ceffd6b588803223029e553a",
+      "bytes": 30152,
+      "exported_utc": "2026-10-07T19:20:51.298096+00:00"
+    },
+    {
+      "path": "data/raw/Purchasing.PurchaseOrderLines.parquet",
+      "table": "Purchasing.PurchaseOrderLines",
+      "rows": 8367,
+      "columns": [
+        {
+          "name": "PurchaseOrderLineID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PurchaseOrderID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "OrderedOuters",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "ReceivedOuters",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PackageTypeID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ExpectedUnitPricePerOuter",
+          "type": "decimal128(18, 2)",
+          "nullable": true
+        },
+        {
+          "name": "LastReceiptDate",
+          "type": "date32[day]",
+          "nullable": true
+        },
+        {
+          "name": "IsOrderLineFinalized",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "e1bf2fb793bc7b6c4e57d8f718cf75cf4d4fbf19c5f9c9f1639f62edc59841a8",
+      "bytes": 108603,
+      "exported_utc": "2026-10-07T19:20:51.615544+00:00"
+    },
+    {
+      "path": "data/raw/Purchasing.Suppliers.parquet",
+      "table": "Purchasing.Suppliers",
+      "rows": 13,
+      "columns": [
+        {
+          "name": "SupplierID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SupplierName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "SupplierCategoryID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryMethodID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PostalCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SupplierReference",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "BankAccountName",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "BankAccountBranch",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "BankAccountCode",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "BankAccountNumber",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "BankInternationalCode",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PaymentDays",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "InternalComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PhoneNumber",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "FaxNumber",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "WebsiteURL",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PostalPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "a9344e5aa5ecb4ebf7a25aca29d1981fcf01f3c806f77a0e33a2610d23fbbb74",
+      "bytes": 11807,
+      "exported_utc": "2026-10-07T19:20:51.653553+00:00"
+    },
+    {
+      "path": "data/raw/Sales.Invoices.parquet",
+      "table": "Sales.Invoices",
+      "rows": 70510,
+      "columns": [
+        {
+          "name": "InvoiceID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "BillToCustomerID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "OrderID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryMethodID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ContactPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "AccountsPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SalespersonPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PackedByPersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "InvoiceDate",
+          "type": "date32[day]",
+          "nullable": false
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "IsCreditNote",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "CreditNoteReason",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryInstructions",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "InternalComments",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "TotalDryItems",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "TotalChillerItems",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryRun",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "RunPosition",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ReturnedDeliveryData",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "ConfirmedDeliveryTime",
+          "type": "timestamp[us]",
+          "nullable": true
+        },
+        {
+          "name": "ConfirmedDeliveryTime__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ConfirmedReceivedBy",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "7f5d6f5af35b180613f9b38cb0299e1ce6d491891eae273bc1165760271b9dd6",
+      "bytes": 4249421,
+      "exported_utc": "2026-10-07T19:23:16.701653+00:00"
+    },
+    {
+      "path": "data/raw/Sales.InvoiceLines.parquet",
+      "table": "Sales.InvoiceLines",
+      "rows": 228265,
+      "columns": [
+        {
+          "name": "InvoiceLineID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "InvoiceID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PackageTypeID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "Quantity",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": true
+        },
+        {
+          "name": "TaxRate",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "TaxAmount",
+          "type": "decimal128(18, 2)",
+          "nullable": false
+        },
+        {
+          "name": "LineProfit",
+          "type": "decimal128(18, 2)",
+          "nullable": false
+        },
+        {
+          "name": "ExtendedPrice",
+          "type": "decimal128(18, 2)",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "dfa5d4b39755dd846782de7efb5a31ecc4d3253a2b45637bf03f160ba00fa7b2",
+      "bytes": 3351355,
+      "exported_utc": "2026-10-07T19:24:20.859868+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.StockItemTransactions.parquet",
+      "table": "Warehouse.StockItemTransactions",
+      "rows": 236667,
+      "columns": [
+        {
+          "name": "StockItemTransactionID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "TransactionTypeID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "InvoiceID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "SupplierID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "PurchaseOrderID",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "TransactionOccurredWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "TransactionOccurredWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "Quantity",
+          "type": "decimal128(18, 3)",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "a259ec784a099fff878422de5207c23f0c1467868e65eba7c9425928d380e6c3",
+      "bytes": 2354394,
+      "exported_utc": "2026-10-07T19:26:04.058694+00:00"
+    },
+    {
+      "path": "data/raw/Sales.CustomerCategories.parquet",
+      "table": "Sales.CustomerCategories",
+      "rows": 8,
+      "columns": [
+        {
+          "name": "CustomerCategoryID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CustomerCategoryName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "e9e43b83eb231f4c981a2b19e28ae27def40ed9a227da8af76293aec13036d30",
+      "bytes": 2473,
+      "exported_utc": "2026-10-07T19:26:04.125507+00:00"
+    },
+    {
+      "path": "data/raw/Sales.BuyingGroups.parquet",
+      "table": "Sales.BuyingGroups",
+      "rows": 2,
+      "columns": [
+        {
+          "name": "BuyingGroupID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "BuyingGroupName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "5a301a85355e25bfdbe92d66e058cc5acfb775bfeb20992615e323c0dc58177f",
+      "bytes": 2353,
+      "exported_utc": "2026-10-07T19:26:04.181908+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.StockGroups.parquet",
+      "table": "Warehouse.StockGroups",
+      "rows": 10,
+      "columns": [
+        {
+          "name": "StockGroupID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockGroupName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "e9b73384ed6809f3d3753b3c4f84337a8afeb115eb818195bf71f7523752a686",
+      "bytes": 2512,
+      "exported_utc": "2026-10-07T19:26:04.228070+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.StockItemStockGroups.parquet",
+      "table": "Warehouse.StockItemStockGroups",
+      "rows": 442,
+      "columns": [
+        {
+          "name": "StockItemStockGroupID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockItemID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StockGroupID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "38c689a5d83b35c0fc1a173b076b43c0bfa61eba979af44ff37ae09c3a7fa252",
+      "bytes": 4340,
+      "exported_utc": "2026-10-07T19:26:04.270848+00:00"
+    },
+    {
+      "path": "data/raw/Warehouse.PackageTypes.parquet",
+      "table": "Warehouse.PackageTypes",
+      "rows": 14,
+      "columns": [
+        {
+          "name": "PackageTypeID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PackageTypeName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "de99520e9b13b44e8d2055be93bc455752566409e37fb462c1cbb0339ef93628",
+      "bytes": 2439,
+      "exported_utc": "2026-10-07T19:26:04.300141+00:00"
+    },
+    {
+      "path": "data/raw/Application.People.parquet",
+      "table": "Application.People",
+      "rows": 1111,
+      "columns": [
+        {
+          "name": "PersonID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "FullName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PreferredName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "SearchName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "IsPermittedToLogon",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "LogonName",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "IsExternalLogonProvider",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "IsSystemUser",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "IsEmployee",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "IsSalesperson",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "UserPreferences",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PhoneNumber",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "FaxNumber",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "EmailAddress",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "CustomFields",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "OtherLanguages",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "2537c7f583954681c804f8d96e22b7a78a42a0e7cfd494a23778c5e6f1de612a",
+      "bytes": 57775,
+      "exported_utc": "2026-10-07T19:26:04.599795+00:00"
+    },
+    {
+      "path": "data/raw/Application.Cities.parquet",
+      "table": "Application.Cities",
+      "rows": 37940,
+      "columns": [
+        {
+          "name": "CityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CityName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "StateProvinceID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "1213394fab7d4d493e572ef7d3e0f184a495e9a7c894831e3d71090c456ad10c",
+      "bytes": 448676,
+      "exported_utc": "2026-10-07T19:26:10.412046+00:00"
+    },
+    {
+      "path": "data/raw/Application.StateProvinces.parquet",
+      "table": "Application.StateProvinces",
+      "rows": 53,
+      "columns": [
+        {
+          "name": "StateProvinceID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "StateProvinceCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "StateProvinceName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "CountryID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "SalesTerritory",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "31f5cbc3a9e0c1b854a9bf31f37672d335a871c7a10b18f21a5bc420f2d21f11",
+      "bytes": 4803,
+      "exported_utc": "2026-10-07T19:26:10.519258+00:00"
+    },
+    {
+      "path": "data/raw/Application.Countries.parquet",
+      "table": "Application.Countries",
+      "rows": 190,
+      "columns": [
+        {
+          "name": "CountryID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "CountryName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "FormalName",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "IsoAlpha3Code",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "IsoNumericCode",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "CountryType",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "Continent",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "Region",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "Subregion",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidFrom__100ns",
+          "type": "int8",
+          "nullable": true
+        },
+        {
+          "name": "ValidTo",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "ValidTo__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "23aca9e4df9289c959ead9125f5745e8f87e0fa03f7b9a6764b006522e68a128",
+      "bytes": 11648,
+      "exported_utc": "2026-10-07T19:26:10.677532+00:00"
+    },
+    {
+      "path": "data/raw/Application.SystemParameters.parquet",
+      "table": "Application.SystemParameters",
+      "rows": 1,
+      "columns": [
+        {
+          "name": "SystemParameterID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "DeliveryCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine1",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "PostalAddressLine2",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "PostalCityID",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "PostalPostalCode",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "ApplicationSettings",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedBy",
+          "type": "int32",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen",
+          "type": "timestamp[us]",
+          "nullable": false
+        },
+        {
+          "name": "LastEditedWhen__100ns",
+          "type": "int8",
+          "nullable": true
+        }
+      ],
+      "sha256": "32e757ba1914f56e7aa815820a5460a5b65874de477abda42878861505f7394e",
+      "bytes": 18651,
+      "exported_utc": "2026-10-07T19:26:10.727631+00:00"
+    }
+  ],
+  "omitted_fields": [
+    {
+      "table": "Sales.Customers",
+      "column": "DeliveryLocation",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Warehouse.StockItems",
+      "column": "Photo",
+      "type": "varbinary",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Purchasing.Suppliers",
+      "column": "DeliveryLocation",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.People",
+      "column": "HashedPassword",
+      "type": "varbinary",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.People",
+      "column": "Photo",
+      "type": "varbinary",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.Cities",
+      "column": "Location",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.StateProvinces",
+      "column": "Border",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.Countries",
+      "column": "Border",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    },
+    {
+      "table": "Application.SystemParameters",
+      "column": "DeliveryLocation",
+      "type": "geography",
+      "reason": "binary/spatial/unsupported unused type omitted explicitly"
+    }
+  ],
+  "omitted_tables": [
+    "archive tables except future explicit refresh; no proven historic snapshot",
+    "DW not acquired; presence recorded separately"
+  ],
+  "consistency": "observed-quiescent-boundary-probes-and-matching-counts; not atomic",
+  "time_semantics": "source dates/timestamps are naive sample business times; never UTC-labelled; acquisition log UTC explicit",
+  "null_semantics": "Arrow null preserved; empty string distinct",
+  "string_semantics": "SQL collation recorded; local exact-ID joins; case-insensitive UI name search uses Unicode casefold and is not SQL collation equivalence",
+  "query_version": "v1",
+  "metric_version": "v0",
+  "tool_versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "pyarrow": "25.0.1",
+    "pyodbc": "5.3.0",
+    "driver": "ODBC Driver 13 for SQL Server"
+  },
+  "attribution": {
+    "publisher": "Microsoft Wide World Importers simulated sample",
+    "source": "https://github.com/microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0",
+    "notice": "not audited operations; local binary lineage not independently authenticated"
+  },
+  "acquisition_status": "pass-observed-stable",
+  "p1_status": "pass",
+  "p2_status": "pass",
+  "p1_gate": "203 independent parity/type/key checks, source controls, full-history/cut-off outputs and moved-folder offline rebuild/query",
+  "p2_gate": {
+    "metric_checks": 277,
+    "source_parity_checks": 205,
+    "http_checks": 31,
+    "contract_validation": "pass",
+    "ui_validation": "pass",
+    "tasks": "12 development /18 holdout frozen independently; agent runs none",
+    "money": "nonblocking blocked currency provenance"
+  },
+  "p3_status": "optional-evidence-delivered",
+  "p3_verdicts": {
+    "history": "exact blocked / approximation candidate",
+    "supplier_lateness": "uniform-zero chart rejected",
+    "confirmation_lateness": "stored-date candidate outside dashboard"
+  },
+  "dataset_bytes": {
+    "parquet": 14580711,
+    "duckdb": 50868224
+  },
+  "published_measures": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M12_orders_category"
+  ],
+  "ppt_edited": false,
+  "v2": {
+    "contract_version": "0.2.0",
+    "data_rows_changed": false,
+    "raw_parquet_identical_to_v1": true,
+    "added": [
+      "analytics views customer_dim/order_lines_v2/invoice_lines_v2/incoming_v2",
+      "analytics.entity_index",
+      "/api/analyze",
+      "/api/resolve",
+      "/api/related",
+      "/api/contract",
+      "/api/lookup",
+      "Analysis page",
+      "catalog: analysis_measures, dimensions, glossary, graph, playbooks, operations, retrieval/pages.json",
+      "evaluation/v2",
+      "Linux scripts"
+    ],
+    "published_analysis_measures": [
+      "M01",
+      "M02",
+      "M03",
+      "M13",
+      "M05",
+      "M10 (with caveat)",
+      "M11 (with caveat)"
+    ],
+    "checks": {
+      "v1_data": 205,
+      "v1_metric": 277,
+      "v1_api": 31,
+      "v2": 310,
+      "task_answer_check": "276/276 vs independent oracle",
+      "oracle_selftest": "72/72",
+      "linux_fresh_install": "pass"
+    },
+    "agent_runs": "none",
+    "spec": "docs/V2_SPEC.md",
+    "summary": "docs/WHATS_NEW_V2.md"
+  }
+}

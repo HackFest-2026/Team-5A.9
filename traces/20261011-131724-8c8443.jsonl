@@ -1,0 +1,8 @@
+{"t": 0.0, "kind": "turn", "text": "Show the stock position of USB missile launcher (Green)"}
+{"t": 6.604, "kind": "understand", "intent": {"action": "analyze", "measure_id": "M02", "group_by": "unchanged", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [{"text": "USB missile launcher (Green)", "type": "stock_item"}], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 6.6, "retries": 0}
+{"t": 6.617, "kind": "tool_call", "tool": "resolve", "args": {"kind": "stock_item", "name": "USB missile launcher (Green)"}, "ok": true, "status": "unique"}
+{"t": 6.617, "kind": "expectation", "action": "analyze", "request": {"measure_id": "M02", "filters": {"stock_item_id": 1}, "scenario_id": "base", "date_basis": "order_date"}}
+{"t": 6.645, "kind": "tool_call", "tool": "analyze", "args": {"measure_id": "M02", "date_basis": "order_date", "group_by": "none", "filters": {"stock_item_id": 1}, "scenario_id": "base"}, "ok": true, "error": null, "latency": 0.029}
+{"t": 6.646, "kind": "finish_check", "ok": true, "violations": []}
+{"t": 8.844, "kind": "answer_draft", "draft": 0, "ok": true, "latency": 2.2, "violations": []}
+{"t": 8.844, "kind": "result", "status": "answered", "op": "analyze", "link": "#/analysis?measure_id=M02&date_basis=order_date&group_by=none&sort=value_desc&top_n=10&scenario_id=base&stock_item_id=1", "latency": 8.84, "llm_calls": 2}

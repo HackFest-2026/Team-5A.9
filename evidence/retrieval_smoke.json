@@ -1,0 +1,30 @@
+{
+ "pages": 293,
+ "queries_total": 150,
+ "queries_none_fit_excluded": 10,
+ "results": [
+  {
+   "retriever": "llm-two-stage (deepseek-r1-32b)",
+   "n": 3,
+   "MRR_gold": 0.333,
+   "MRR_lenient": 0.444,
+   "hit@1_gold_pct": 33.3,
+   "hit@3_gold_pct": 33.3,
+   "hit@5_gold_pct": 33.3,
+   "hit@1_lenient_pct": 33.3,
+   "hit@3_lenient_pct": 66.7,
+   "hit@5_lenient_pct": 66.7,
+   "precision@1_lenient_pct": 33.3,
+   "precision@3_lenient_pct": 33.3,
+   "precision@5_lenient_pct": 20.0,
+   "recall@1_gold_pct": 33.3,
+   "recall@3_gold_pct": 33.3,
+   "recall@5_gold_pct": 33.3,
+   "MRR_gold_by_difficulty": {
+    "easy": 0.333
+   },
+   "wall_seconds": 10.5,
+   "seconds_per_query": 3.49
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+SELECT r.session_id,r.command,r.status,s.program_name FROM sys.dm_exec_requests r JOIN sys.dm_exec_sessions s ON s.session_id=r.session_id WHERE r.session_id<>@@SPID AND s.is_user_process=1;

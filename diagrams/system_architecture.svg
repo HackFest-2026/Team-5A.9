@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>System architecture: one Application Contract, three phases</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text x="20" y="50" font-size="37" font-weight="800" fill="#0f172a">Our agent never clicks around the screen. It works from one Contract that describes the app.</text>
+  <text x="20" y="92" font-size="24" fill="#475569">The Contract is written once (Phase 1), used to answer every question (Phase 2), and used to score the results (Phase 3).</text>
+  <text x="1900" y="92" font-size="25" font-weight="800" fill="#c2410c" text-anchor="end">★ = our contribution</text>
+
+  <!-- ============ PHASE 1 ============ -->
+  <rect x="80" y="112" width="1820" height="240" rx="6" fill="#f5f8ff" stroke="#2563eb" stroke-width="3" stroke-dasharray="14 8"/>
+  <rect x="20" y="112" width="55" height="240" fill="#2563eb"/>
+  <g transform="rotate(-90 47 232)" fill="#ffffff" text-anchor="middle">
+    <text x="47" y="225" font-size="22" font-weight="800">PHASE 1</text>
+    <text x="47" y="251" font-size="19">Describe the app</text>
+  </g>
+
+  <rect x="105" y="160" width="360" height="145" rx="12" fill="#ffffff" stroke="#3b6fd8" stroke-width="2.5"/>
+  <text x="285" y="212" font-size="30" font-weight="700" fill="#0f172a" text-anchor="middle">Your no-code app</text>
+  <text x="285" y="252" font-size="25" fill="#475569" text-anchor="middle">pages, filters, charts</text>
+  <text x="285" y="284" font-size="25" fill="#475569" text-anchor="middle">and data tables</text>
+
+  <line x1="465" y1="232" x2="700" y2="232" stroke="#334155" stroke-width="3.5" marker-end="url(#arr)"/>
+  <text x="582" y="212" font-size="24" fill="#0f172a" text-anchor="middle">described once,</text>
+  <text x="582" y="268" font-size="24" fill="#0f172a" text-anchor="middle">every claim tested</text>
+
+  <rect x="705" y="127" width="1180" height="212" rx="12" fill="#fff4ec" stroke="#c2410c" stroke-width="3"/>
+  <text x="730" y="170" font-size="32" font-weight="800" fill="#9a3412">★ Application Contract</text>
+  <g font-size="25" fill="#1f2937">
+    <text x="730" y="212">• every page and filter, by name</text>
+    <text x="730" y="248">• what each number means:</text>
+    <text x="754" y="280" fill="#9a3412" font-weight="700">unit, level of detail, time period</text>
+    <text x="730" y="318">• which settings go together</text>
+  </g>
+  <rect x="1240" y="142" width="630" height="182" rx="8" fill="#ffffff" stroke="#f0a36b" stroke-width="1.5"/>
+  <g font-family="DejaVu Sans Mono, Consolas, monospace" font-size="22" fill="#0f172a">
+    <text x="1260" y="177"><tspan fill="#1d4ed8" font-weight="700">page   </tspan>Deliveries</text>
+    <text x="1260" y="210"><tspan fill="#1d4ed8" font-weight="700">filter </tspan>status: late | on time</text>
+    <text x="1260" y="243"><tspan fill="#1d4ed8" font-weight="700">number </tspan>late deliveries</text>
+    <text x="1365" y="276" fill="#9a3412">= count, one row per delivery</text>
+    <text x="1392" y="309" fill="#9a3412">grouped by delivery date</text>
+  </g>
+
+  <!-- ============ PHASE 2 ============ -->
+  <rect x="80" y="372" width="1820" height="500" rx="6" fill="#faf8ff" stroke="#7c3aed" stroke-width="3" stroke-dasharray="14 8"/>
+  <rect x="20" y="372" width="55" height="500" fill="#7c3aed"/>
+  <g transform="rotate(-90 47 622)" fill="#ffffff" text-anchor="middle">
+    <text x="47" y="615" font-size="22" font-weight="800">PHASE 2</text>
+    <text x="47" y="641" font-size="19">Answer a question</text>
+  </g>
+
+  <!-- Contract bar -->
+  <line x1="1100" y1="339" x2="1100" y2="398" stroke="#c2410c" stroke-width="3.5" stroke-dasharray="9 7" marker-end="url(#arrO)"/>
+  <rect x="355" y="398" width="1085" height="62" rx="10" fill="#fff4ec" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="897" y="439" font-size="27" font-weight="700" fill="#9a3412" text-anchor="middle">Every step looks things up in the Contract</text>
+  <g stroke="#c2410c" stroke-width="3" marker-end="url(#arrO)">
+    <line x1="497" y1="460" x2="497" y2="518"/>
+    <line x1="897" y1="460" x2="897" y2="518"/>
+    <line x1="1297" y1="460" x2="1297" y2="518"/>
+  </g>
+
+  <!-- Question -->
+  <rect x="100" y="518" width="220" height="227" rx="14" fill="#eef4ff" stroke="#3b6fd8" stroke-width="2.5"/>
+  <circle cx="210" cy="555" r="16" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+  <path d="M184,594 a26,21 0 0,1 52,0" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+  <g font-size="25" fill="#0f172a" text-anchor="middle">
+    <text x="210" y="640">"Why did late</text>
+    <text x="210" y="672">deliveries rise</text>
+    <text x="210" y="704">in May?"</text>
+  </g>
+
+  <!-- Steps -->
+  <g>
+    <rect x="355" y="518" width="285" height="227" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+    <rect x="755" y="518" width="285" height="227" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+    <rect x="1155" y="518" width="285" height="227" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+  </g>
+  <g font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">
+    <circle cx="384" cy="553" r="18" fill="#6d28d9"/><text x="384" y="560">1</text>
+    <circle cx="784" cy="553" r="18" fill="#6d28d9"/><text x="784" y="560">2</text>
+    <circle cx="1184" cy="553" r="18" fill="#6d28d9"/><text x="1184" y="560">3</text>
+  </g>
+  <g font-size="27" font-weight="800" fill="#0f172a">
+    <text x="410" y="563">Find the page</text>
+    <text x="810" y="563">Set the view</text>
+    <text x="1210" y="563">Get the numbers</text>
+  </g>
+  <g font-size="25" fill="#334155">
+    <text x="373" y="610">Which page can</text>
+    <text x="373" y="642">answer this?</text>
+    <text x="373" y="682">If none, it says so.</text>
+    <text x="773" y="610">Page and filters</text>
+    <text x="773" y="642">set by name,</text>
+    <text x="773" y="674">not by clicking.</text>
+    <text x="1173" y="610">Same query as</text>
+    <text x="1173" y="642">the screen; each</text>
+    <text x="1173" y="674">number tagged</text>
+    <text x="1173" y="706">with its source.</text>
+  </g>
+
+  <!-- Answer -->
+  <rect x="1555" y="518" width="330" height="227" rx="14" fill="#eef4ff" stroke="#3b6fd8" stroke-width="2.5"/>
+  <text x="1577" y="563" font-size="28" font-weight="800" fill="#0f172a">The answer</text>
+  <g font-size="23" fill="#334155">
+    <circle cx="1586" cy="600" r="8" fill="#2563eb"/><text x="1602" y="608"><tspan font-weight="800" fill="#1d4ed8">Fact:</tspan> read off screen</text>
+    <circle cx="1586" cy="638" r="8" fill="#7c3aed"/><text x="1602" y="646"><tspan font-weight="800" fill="#6d28d9">Calculation:</tspan> + inputs</text>
+    <circle cx="1586" cy="676" r="8" fill="#c2410c"/><text x="1602" y="684"><tspan font-weight="800" fill="#c2410c">Inference:</tspan> flagged</text>
+  </g>
+  <text x="1577" y="724" font-size="23" font-weight="800" fill="#1d4ed8">→ link to the exact view</text>
+
+  <!-- Flow arrows -->
+  <g stroke="#334155" stroke-width="3.5" marker-end="url(#arr)">
+    <line x1="320" y1="625" x2="355" y2="625"/>
+    <line x1="640" y1="625" x2="755" y2="625"/>
+    <line x1="1040" y1="625" x2="1155" y2="625"/>
+    <line x1="1440" y1="625" x2="1555" y2="625"/>
+  </g>
+
+  <!-- Checks -->
+  <g>
+    <polygon points="697,596 726,625 697,654 668,625" fill="#ea580c"/>
+    <polygon points="1097,596 1126,625 1097,654 1068,625" fill="#ea580c"/>
+    <polygon points="1497,596 1526,625 1497,654 1468,625" fill="#ea580c"/>
+    <g fill="none" stroke="#ffffff" stroke-width="4">
+      <path d="M685,625 l9,9 l15,-17"/><path d="M1085,625 l9,9 l15,-17"/><path d="M1485,625 l9,9 l15,-17"/>
+    </g>
+  </g>
+  <g font-size="23" font-weight="800" fill="#c2410c" text-anchor="middle">
+    <text x="697" y="690">Allowed?</text>
+    <text x="1097" y="690">Applied?</text>
+    <text x="1497" y="690">Traced?</text>
+  </g>
+
+  <!-- What the steps touch -->
+  <g stroke="#334155" stroke-width="3.5" marker-end="url(#arr)" marker-start="url(#arr)">
+    <line x1="897" y1="745" x2="897" y2="790"/>
+    <line x1="1297" y1="745" x2="1297" y2="790"/>
+  </g>
+  <rect x="755" y="790" width="285" height="66" rx="12" fill="#ffffff" stroke="#3b6fd8" stroke-width="2.5"/>
+  <text x="897" y="833" font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">App screen</text>
+  <path d="M1155,802 v42 a142,12 0 0,0 285,0 v-42" fill="#eef2f6" stroke="#64748b" stroke-width="2.5"/>
+  <ellipse cx="1297" cy="802" rx="142" ry="12" fill="#e2e8f0" stroke="#64748b" stroke-width="2.5"/>
+  <text x="1297" y="840" font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">Business data</text>
+
+  <text x="100" y="814" font-size="24" font-style="italic" font-weight="600" fill="#9a3412">If a check fails, the agent asks,</text>
+  <text x="100" y="846" font-size="24" font-style="italic" font-weight="600" fill="#9a3412">undoes or rewrites. Never guesses.</text>
+  <text x="1555" y="814" font-size="24" font-style="italic" fill="#475569">Every step is recorded</text>
+  <text x="1555" y="846" font-size="24" font-style="italic" fill="#475569">for Phase 3.</text>
+
+  <!-- ============ PHASE 3 ============ -->
+  <rect x="80" y="892" width="1820" height="175" rx="6" fill="#f3fbf7" stroke="#059669" stroke-width="3" stroke-dasharray="14 8"/>
+  <rect x="20" y="892" width="55" height="175" fill="#059669"/>
+  <g transform="rotate(-90 47 979)" fill="#ffffff" text-anchor="middle">
+    <text x="47" y="972" font-size="22" font-weight="800">PHASE 3</text>
+    <text x="47" y="998" font-size="19">Prove it</text>
+  </g>
+
+  <rect x="100" y="912" width="370" height="135" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+  <text x="285" y="970" font-size="27" font-weight="700" fill="#064e3b" text-anchor="middle">Test questions with</text>
+  <text x="285" y="1006" font-size="27" font-weight="700" fill="#064e3b" text-anchor="middle">known right answers</text>
+
+  <rect x="530" y="912" width="490" height="135" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2.5"/>
+  <text x="775" y="970" font-size="27" font-weight="700" fill="#064e3b" text-anchor="middle">★ Replay them all, with</text>
+  <text x="775" y="1006" font-size="27" font-weight="700" fill="#064e3b" text-anchor="middle">our checks on and off</text>
+
+  <rect x="1080" y="912" width="805" height="135" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+  <text x="1105" y="952" font-size="27" font-weight="800" fill="#064e3b">Scorecard</text>
+  <g font-size="24" fill="#1f2937">
+    <text x="1105" y="992">✓ right page</text><text x="1340" y="992">✓ right filters</text><text x="1600" y="992">✓ correct numbers</text>
+    <text x="1105" y="1030">✓ every number traced</text><text x="1460" y="1030">✓ no made-up actions</text>
+  </g>
+
+  <g stroke="#334155" stroke-width="3.5" marker-end="url(#arr)">
+    <line x1="470" y1="979" x2="530" y2="979"/>
+    <line x1="1020" y1="979" x2="1080" y2="979"/>
+  </g>
+</svg>

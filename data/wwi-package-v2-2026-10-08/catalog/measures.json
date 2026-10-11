@@ -1,0 +1,376 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "scenario_id": "base",
+  "supported_operations": [
+    "read_metric",
+    "read_records",
+    "read_chart",
+    "navigate_local_view",
+    "resolve_explicit_id"
+  ],
+  "context_propagation": {
+    "item": "retain explicit selected item across holdings/purchasing/supplier",
+    "period": "retain order-period intent; undated holdings do not apply dates and say so explicitly",
+    "scenario": "change resets entity selections and query scope",
+    "selection": "new selection replaces stale item/order/customer IDs",
+    "purchasing": "incoming vs all-history is explicit; related by item, not allocated"
+  },
+  "items": [
+    {
+      "id": "M01",
+      "name": "Orders created",
+      "business_question": "How many orders were created?",
+      "grain": "distinct order",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "COUNT(DISTINCT OrderID)",
+      "unit": "orders",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status",
+        "order_line_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders",
+        "Sales.OrderLines"
+      ],
+      "query_file": "sql/local/M01.sql",
+      "evidence_file": "evidence/metrics/M01.csv",
+      "status": "verified",
+      "limitation": "New backorders count as orders; not newly originating customer demand. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "name": "Stored unpicked units",
+      "business_question": "How many ordered units remain unpicked in the stored state?",
+      "grain": "order line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "SUM(MAX(Quantity-PickedQuantity,0))",
+      "unit": "item units (count, unlike goods)",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status",
+        "order_line_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders",
+        "Sales.OrderLines"
+      ],
+      "query_file": "sql/local/M02.sql",
+      "evidence_file": "evidence/metrics/M02.csv",
+      "status": "verified",
+      "limitation": "Not historical backlog, volume, available-to-promise or delivery failure. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "name": "Orders with unpicked quantities",
+      "business_question": "How many orders have at least one unpicked line?",
+      "grain": "distinct order",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "COUNT(DISTINCT OrderID WHERE positive remaining line)",
+      "unit": "orders",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status",
+        "order_line_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders",
+        "Sales.OrderLines"
+      ],
+      "query_file": "sql/local/M03.sql",
+      "evidence_file": "evidence/metrics/M03.csv",
+      "status": "verified",
+      "limitation": "Distinct orders differ from lines. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "name": "Stored holdings and reorder level",
+      "business_question": "What stock is held for each selected item?",
+      "grain": "stock item",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "QuantityOnHand, ReorderLevel, TargetStockLevel",
+      "unit": "item units",
+      "currency": null,
+      "date_basis": "none",
+      "supported_filters": [
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Warehouse.StockItemHoldings",
+        "Warehouse.StockItems"
+      ],
+      "query_file": "sql/local/M04.sql",
+      "evidence_file": "evidence/metrics/M04.csv",
+      "status": "verified",
+      "limitation": "Undated stored state; do not sum duplicated holdings or infer available stock. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "name": "Related incoming units",
+      "business_question": "What unreceived purchasing quantity is recorded under open flags?",
+      "grain": "purchase line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "SUM((OrderedOuters-ReceivedOuters)*QuantityPerOuter) WHERE header/line nonfinalized and positive balance",
+      "unit": "item units (count, unlike goods)",
+      "currency": null,
+      "date_basis": "purchase_order_date",
+      "supported_filters": [
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "purchase_order_id",
+        "status",
+        "purchase_line_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Purchasing.PurchaseOrders",
+        "Purchasing.PurchaseOrderLines",
+        "Warehouse.StockItems"
+      ],
+      "query_file": "sql/local/M05.sql",
+      "evidence_file": "evidence/metrics/M05.csv",
+      "status": "verified",
+      "limitation": "Actual PO supplier attribution; matching item does not establish customer allocation. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "name": "Date-based time to pick completion",
+      "business_question": "What is the elapsed time from date-only creation to final pick completion?",
+      "grain": "completed order",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "median(PickingCompletedWhen-date(OrderDate))",
+      "unit": "date-based hours",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders"
+      ],
+      "query_file": null,
+      "evidence_file": "reports/measure_verdicts.md",
+      "status": "candidate",
+      "limitation": "Date-only start is not exact processing time; incomplete excluded; retained outside main charts. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": []
+    },
+    {
+      "id": "M07",
+      "name": "Recorded final receipt lateness",
+      "business_question": "Does final receipt calendar date exceed stored expected date?",
+      "grain": "eligible fully received purchase line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "LastReceiptDate > ExpectedDeliveryDate",
+      "unit": "lines / share",
+      "currency": null,
+      "date_basis": "purchase_order_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Purchasing.PurchaseOrders",
+        "Purchasing.PurchaseOrderLines"
+      ],
+      "query_file": null,
+      "evidence_file": "evidence/candidates/lateness_verdict.json",
+      "status": "rejected",
+      "limitation": "Uniform zero recorded final-receipt lateness in eligible fully received lines; missing receipts unknown; original promises not certified.",
+      "tested_domain": []
+    },
+    {
+      "id": "M08",
+      "name": "Recorded confirmation lateness",
+      "business_question": "Does recorded confirmation calendar date exceed stored order expectation?",
+      "grain": "confirmed invoice",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "DATE(ConfirmedDeliveryTime)>ExpectedDeliveryDate",
+      "unit": "invoices / share",
+      "currency": null,
+      "date_basis": "invoice_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Invoices",
+        "Sales.Orders"
+      ],
+      "query_file": null,
+      "evidence_file": "evidence/candidates/lateness_verdict.json",
+      "status": "candidate",
+      "limitation": "Recorded confirmation vs stored expected-date comparison only; original/backorder promises and causal performance not certified; omitted from dashboard.",
+      "tested_domain": []
+    },
+    {
+      "id": "M09",
+      "name": "Estimated open lines",
+      "business_question": "Can open lines be approximated at a historical boundary?",
+      "grain": "current surviving line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "creation before boundary and completion after/unknown",
+      "unit": "estimated lines",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders",
+        "Sales.OrderLines"
+      ],
+      "query_file": null,
+      "evidence_file": "evidence/candidates/history_verdict.json",
+      "status": "candidate",
+      "limitation": "Estimated open surviving lines under lifecycle assumptions; exact historical outstanding units and inventory blocked.",
+      "tested_domain": []
+    },
+    {
+      "id": "M10",
+      "name": "Invoiced sales excluding tax",
+      "business_question": "What recorded invoice-line amount excluding tax is stored?",
+      "grain": "invoice line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "SUM(ExtendedPrice-TaxAmount)",
+      "unit": "unverified currency",
+      "currency": null,
+      "date_basis": "invoice_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Invoices",
+        "Sales.InvoiceLines"
+      ],
+      "query_file": null,
+      "evidence_file": "evidence/candidates/revenue_reconciliation.csv",
+      "status": "blocked",
+      "limitation": "Arithmetic reconciled; currency not established; excluded from dashboard. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": []
+    },
+    {
+      "id": "M11",
+      "name": "Recorded line profit",
+      "business_question": "What profit value is recorded per invoice line?",
+      "grain": "invoice line",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "SUM(LineProfit)",
+      "unit": "unverified currency",
+      "currency": null,
+      "date_basis": "invoice_date",
+      "supported_filters": [],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Invoices",
+        "Sales.InvoiceLines"
+      ],
+      "query_file": null,
+      "evidence_file": "evidence/candidates/revenue_reconciliation.csv",
+      "status": "blocked",
+      "limitation": "Currency unresolved; not business net profit; excluded from dashboard. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": []
+    },
+    {
+      "id": "M12_orders_category",
+      "name": "Orders by current customer category",
+      "business_question": "How are orders attributed to current sold-to customer categories?",
+      "grain": "distinct order by current category",
+      "population": "selected stored sample scope; base-only default",
+      "formula": "COUNT(DISTINCT OrderID) grouped by current sold-to CustomerCategoryID",
+      "unit": "orders",
+      "currency": null,
+      "date_basis": "order_date",
+      "supported_filters": [
+        "customer_id",
+        "stock_item_id",
+        "supplier_id",
+        "stock_group_id",
+        "order_id",
+        "status",
+        "order_line_id"
+      ],
+      "null_behavior": "Unknown dates excluded from dated intervals; remaining arithmetic fails if required quantities lost; lookup unknown category explicit",
+      "comparison_rule": "inclusive start/exclusive end; same metric/unit/date basis/scope; percent change null when previous=0",
+      "source_tables": [
+        "Sales.Orders",
+        "Sales.Customers",
+        "Sales.CustomerCategories"
+      ],
+      "query_file": "sql/local/M12_orders_category.sql",
+      "evidence_file": "evidence/metrics/M12_orders_category.csv",
+      "status": "verified",
+      "limitation": "Current classification, not historical segment membership; unknown explicit. Validation is for recorded tested inputs, not every possible filter combination.",
+      "tested_domain": [
+        {
+          "evidence": "evidence/metric_validation.json",
+          "checks": 277,
+          "scope": "See exact tested inputs and results; not every combination"
+        }
+      ]
+    }
+  ]
+}

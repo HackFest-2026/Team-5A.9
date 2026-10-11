@@ -1,0 +1,152 @@
+"""Literature survey slides (inserted after 'Existing approaches').
+
+Sources: research/api_agents_literature.md (91 papers, evidence-checked 9 Oct 2026), research/citation_chase.md,
+and the earlier decks' GUI-agent slides. Every number is the cited authors' own published result, not our measurement.
+`h` carries the helpers from build_v5.py (new_slide, SlideKit, add_table, bar_chart, colours)."""
+from __future__ import annotations
+
+
+def table_slide(h, title, subtitle, header, rows, widths, note, row_h=0.69):
+    s = h.new_slide(h.prs, title)
+    k = h.SlideKit(s)
+    k.text("subtitle", 0.7, 1.4, 12.0, 0.4, subtitle, size=21.0, bold=True, color=h.TEAL)
+    h.add_table(s, 0.7, 1.9, widths, [0.42] + [row_h] * len(rows), [header] + rows, size=15.75, header_size=16.5)
+    k.text("note", 0.7, 6.58, 12.0, 0.3, note, size=15.0, color=h.MUTED)
+    return s
+
+
+def build(prs, h) -> list[int]:
+    """Create the survey slides and return their indices in prs.slides."""
+    h.prs = prs
+    first = len(prs.slides)
+
+    # 1. scope --------------------------------------------------------------------------------
+    s = h.new_slide(prs, "Literature survey: scope")
+    k = h.SlideKit(s)
+    k.text("subtitle", 0.7, 1.4, 12.0, 0.4, "91 papers in five clusters; numbers only from the papers", size=21.0, bold=True, color=h.TEAL)
+    cards = [
+        ("API, tool and hybrid agents", "14 papers", "Beyond Browsing, WALT, The Tool Illusion"),
+        ("Tool use and small models", "25 papers", "BFCL, EasyTool, NESTFUL"),
+        ("Agent benchmarks", "19 papers", "AppWorld, τ-bench, ToolSandbox"),
+        ("App-declared interfaces", "16 papers", "VACP, CI4A, WebMCP"),
+        ("Analytics and semantic layers", "17 papers", "GROUND, QueryProof"),
+        ("Earlier survey", "GUI agents", "Mind2Web, SeeAct, UI-CUBE"),
+    ]
+    for i, (t, n, ex) in enumerate(cards):
+        x = 0.7 + (i % 3) * 4.1
+        y = 1.95 + (i // 3) * 1.75
+        k.card(f"sc{i}", x, y, 3.8, 1.6, fill="FFFFFF", line=h.TEAL)
+        k.text(f"sc{i}-t", x + 0.18, y + 0.12, 3.45, 0.34, t, size=17.25, bold=True, color=h.NAVY)
+        k.text(f"sc{i}-n", x + 0.18, y + 0.55, 3.45, 0.3, n, size=16.5, bold=True, color=h.TEAL)
+        k.text(f"sc{i}-e", x + 0.18, y + 0.92, 3.45, 0.55, ex, size=15.0, color=h.MUTED)
+    k.card("sc-strip", 0.7, 5.5, 12.0, 0.8, fill=h.HILITE, line=h.TEAL)
+    k.text("sc-strip-t", 0.9, 5.6, 11.6, 0.65,
+           ["Citation chase: 1,724 unique papers citing seven anchor papers; 1,699 full texts searched.",
+            "Papers were checked on arXiv, with full text read for most."], size=15.75, color=h.NAVY2)
+    k.text("sc-note", 0.7, 6.55, 12.0, 0.3, "Mostly 2026 preprints and frontier models. Catalogue: research/api_agents_papers.csv.", size=15.0, color=h.MUTED)
+
+    # 2. GUI and browser agents ---------------------------------------------------------------
+    table_slide(
+        h, "Survey: GUI and browser agents", "Clicking through screens is the weak link",
+        ["Approach", "Representative work", "Published result"],
+        [["Click-driven browser agents", "Playwright, BrowserOS, vision models", "2–7% of whole tasks on real sites; 9–19% on enterprise workflows"],
+         ["Grounding-first agents", "SeeAct", "51.1% only when the element to click is supplied"],
+         ["People new to the app", "UI-CUBE", "61% of complex tasks completed"],
+         ["Best clicking agents today", "Generic-site benchmarks", "About 72%, but on generic websites"],
+         ["Classic RPA", "ECLAIR case studies", "12–18 months to set up; 60% accuracy at the start"],
+         ["Long agent chains", "Several studies", "Success decays per step; under policy, below two-thirds"]],
+        [3.5, 3.4, 5.1], "The cited authors' own results, as recorded in our earlier survey; not our measurement.")
+
+    # 3. API and tool-use agents --------------------------------------------------------------
+    table_slide(
+        h, "Survey: API and tool-use agents", "A few typed operations beat many generated ones",
+        ["Work", "Idea", "Published result"],
+        [["Beyond Browsing", "Call the app's API instead of clicking", "WebArena: browsing 14.8%, API 29.2%, hybrid 38.9%"],
+         ["The Tool Illusion", "Small hand-written tools", "+12.7 to +19.6 points on WebArena, 5 models"],
+         ["EasyTool, AnyTool", "Short tool docs; hierarchical lookup", "Doc tokens −70.4%; without hierarchy 58.9 → 22.4"],
+         ["RestGPT", "Code reshapes API results", "Success 75.0 vs 46.0 without the parser"],
+         ["ActionEngine", "One program per task, run in code", "WebArena 91.2% vs 82.7%; 27 s vs 87 s"],
+         ["NESTFUL", "One call feeding the next", "Full-sequence accuracy 0.22 or lower (7–8B models)"]],
+        [3.0, 4.2, 4.8], "Published results; most come from frontier models. We adopt the small typed tool set.")
+
+    # 4. model choice -------------------------------------------------------------------------
+    table_slide(
+        h, "Survey: model choice evidence", "What tests say about 14B to 32B models",
+        ["Source", "Finding", "Published result"],
+        [["BFCL v3", "Reasoning-distilled model scores lower", "R1-distill 32B 53.5; instruct 14B 58.7; 32B 62.8"],
+         ["BFCL paper", "Multi-turn is the weak point", "14B model: simple calls 69.7, multi-turn 19.5"],
+         ["Brief Is Better", "Long reasoning before a call hurts", "7B: 82.5% at 32 tokens, 18.0% at 256"],
+         ["CRMArena", "R1 in function-calling mode", "9.0, against 35.1 with ReAct"],
+         ["Screenshots or Tools?", "More channels hurt a small model", "−5.9 points; 97 invented tool names"],
+         ["QueryProof", "Rules around a small model", "7B with gates 0.562 vs 32B direct 0.300"]],
+        [3.1, 4.4, 4.5], "Published numbers, not ours. Our design: the model reads the request; code builds the calls.")
+
+    # 5. in-app agents ------------------------------------------------------------------------
+    table_slide(
+        h, "Survey: in-app agents", "Apps that declare their own actions",
+        ["Work", "Idea", "Published result"],
+        [["VACP", "App declares state and actions", "UI+DOM 28.9–51.1%; VACP-only 91.1–100% (15 tasks)"],
+         ["CI4A", "Widgets register their own tools", "75.3–86.3% vs 26.4–70.3% for DOM agents"],
+         ["TwinBI", "One app state and semantic layer", "Exact match 43.3% → 63.3%; steps 16.5 → 6.9"],
+         ["WidgetVA", "Actions apart from read-only queries", "Trace +15.1, state +23.1 points (average)"],
+         ["WALT", "Turn a site's functions into tools", "WebArena 50.1%; 1.3 to 1.4 times fewer steps"],
+         ["EmbeWebAgent, WebMCP", "Page-scoped actions; browser draft", "Demo and draft spec; no success rates"]],
+        [3.1, 4.3, 4.6], "No independent replication of VACP yet, and its repository has no licence.")
+
+    # 6. checks and analytics -----------------------------------------------------------------
+    table_slide(
+        h, "Survey: checks and analytics", "Verify in code, keep meaning in a layer",
+        ["Work", "Idea", "Published result"],
+        [["LedgerAgent", "Ledger of observed facts; code gates writes", "+3.4 to +7.6 points on τ²-bench"],
+         ["Reason Less, Verify More", "Verify in code, reason less", "+12 points on τ²-bench"],
+         ["Mingbird", "Harness: dispatch, loop check, finish", "Mechanism; we adopt the finish gate"],
+         ["GROUND", "Governed semantic layer plus validator", "Hallucination rate 0.79 → 0.00"],
+         ["Knowledge graph, ontology", "Meaning behind the question", "16.7% → 54.2%; 72.6% with repair"],
+         ["Context-layer study", "Data contract behind tools", "Hard tasks 13.9–37.0% → 55.1–77.4%"]],
+        [3.4, 4.5, 4.1], "A vendor test found 0% on multi-hop questions the semantic layer had not modelled.")
+
+    # 7. evaluation designs -------------------------------------------------------------------
+    table_slide(
+        h, "Survey: evaluation designs", "How others score agents",
+        ["Benchmark", "Design", "Published result"],
+        [["AppWorld", "State diff; no collateral changes", "GPT-4o 48.8% normal, 30.2% challenge"],
+         ["τ-bench", "pass^k: all k runs must succeed", "GPT-4o retail 61.2%; pass^8 below 25%"],
+         ["ToolSandbox", "Milestones and forbidden events", "Partial credit; one forbidden event scores 0"],
+         ["ST-WebAgentBench", "Completion under policy", "Completion 24.3%, under policy 15.0%"],
+         ["AD-Bench", "Score the tool trajectory", "Best model 76.9%; a 30B model 39.6%"],
+         ["WebArena Verified", "812 tasks audited, exact scoring", "About 11% fewer false negatives"]],
+        [3.1, 4.4, 4.5], "We borrow: state diff, pass^k, forbidden actions, and no LLM judge for correctness.")
+
+    # 8. hybrid chart -------------------------------------------------------------------------
+    s = h.new_slide(prs, "Survey: API, UI or hybrid?")
+    k = h.SlideKit(s)
+    k.text("subtitle", 0.7, 1.4, 12.0, 0.4, "Hybrid helps when the API covers only part of the app", size=21.0, bold=True, color=h.TEAL)
+    h.bar_chart(s, 0.55, 1.95, 7.6, 3.6, ["WebArena", "MCPWorld", "CoAct-1"],
+                {"UI only": [14.8, 70.65, 50.68], "API only": [29.2, 53.23, 35.73], "Hybrid": [38.9, 75.12, 60.76]},
+                [h.MUTED, h.NAVY2, h.TEAL], fmt='0.0"%"', vmax=100, gap=45)
+    for i, (lab, col) in enumerate([("UI only", h.MUTED), ("API only", h.NAVY2), ("Hybrid", h.TEAL)]):
+        k.rect(f"leg{i}", 1.0 + i * 2.0, 5.67, 0.16, 0.16, fill=col)
+        k.text(f"leg{i}-t", 1.25 + i * 2.0, 5.6, 1.6, 0.3, lab, size=15.0, color=h.NAVY2)
+    pts = ["Hybrid wins when the API covers only part of the app.",
+           "With a complete declared interface (VACP), extra UI adds cost, not accuracy.",
+           "A small non-reasoning model got worse with more channels."]
+    y = 2.1
+    for i, t in enumerate(pts):
+        k.rect(f"hp{i}-m", 8.5, y + 0.09, 0.1, 0.1, fill=h.TEAL)
+        k.text(f"hp{i}", 8.75, y, 3.95, 1.05, t, size=16.5, color=h.NAVY2)
+        y += 1.2
+    k.text("hy-note", 0.7, 6.55, 12.0, 0.3, "Published results, frontier models. Conclusion: use the UI channel to verify and show, not to act.", size=15.0, color=h.MUTED)
+
+    # 9. from the survey to our design --------------------------------------------------------
+    table_slide(
+        h, "From the survey to our design", "Each mechanism has a published precedent",
+        ["Problem found", "What we built", "Backed by"],
+        [["Clicking is slow and fragile", "API calls and declared in-app actions", "Beyond Browsing, VACP"],
+         ["Invented filters and values", "Schema and grounding gates before every call", "GROUND, QueryProof"],
+         ["Success claimed unchecked", "Code-checked finish gate; numbers traced", "Mingbird, LedgerAgent"],
+         ["Free SQL misreads meaning", "Named measures; no free SQL", "Semantic-layer studies"],
+         ["Small models fail long chains", "Model reads slots; code builds the calls", "BFCL, NESTFUL"],
+         ["Few in-app evaluations", "Dev-set KPIs; held-out run planned", "AppWorld, τ-bench"]],
+        [3.6, 5.0, 3.4], "In the citation chase, only one paper cites an in-app anchor together with another anchor.")
+
+    return list(range(first, len(prs.slides)))

@@ -1,0 +1,3 @@
+{"t": 0.0, "kind": "turn", "text": "Orders in May 2016"}
+{"t": 12.008, "kind": "error", "error": "could not obtain a valid intent: LLM unreachable: [Errno 111] Connection refused"}
+{"t": 12.008, "kind": "result", "status": "error", "op": "error", "link": null, "latency": 12.01, "llm_calls": 0}

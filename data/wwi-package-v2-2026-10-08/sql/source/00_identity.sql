@@ -1,0 +1,1 @@
+SELECT @@SERVERNAME ServerName,CONVERT(nvarchar(128),SERVERPROPERTY('Edition')) Edition,CONVERT(nvarchar(128),SERVERPROPERTY('ProductVersion')) ProductVersion,DB_NAME() DatabaseName,CONVERT(nvarchar(33),SYSDATETIME(),126) SourceLocalTime

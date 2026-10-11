@@ -1,0 +1,1 @@
+SELECT l.StockItemID,s.StockItemName AS label,SUM(l.UnpickedUnits)::BIGINT AS value FROM analytics.order_lines l JOIN analytics.items s ON s.StockItemID=l.StockItemID AND s.ScenarioID=l.ScenarioID WHERE l.ScenarioID=? AND l.UnpickedUnits>0 GROUP BY 1,2 ORDER BY value DESC,l.StockItemID LIMIT ?

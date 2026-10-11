@@ -1,0 +1,3 @@
+{"t": 0.0, "kind": "turn", "text": "Which states inside Great Lakes moved?"}
+{"t": 32.229, "kind": "understand", "intent": {"action": "analyze", "measure_id": "unchanged", "group_by": "state_province", "period": {"kind": "unchanged"}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [{"text": "Great Lakes", "type": "sales_territory"}], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 32.23, "retries": 0}
+{"t": 32.229, "kind": "result", "status": "clarify", "op": "clarify", "link": null, "latency": 32.23, "llm_calls": 1}

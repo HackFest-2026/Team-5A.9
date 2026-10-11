@@ -1,0 +1,86 @@
+{
+  "frozen_utc": "2026-10-08T14:57:05Z",
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "contract_version": "0.2.0",
+  "oracle_version": "oracle_v2 1.0.1",
+  "oracle_file": "scripts/oracle_v2.py",
+  "oracle_sha256": "0348d541c5252a8881c2d1f40f9f3a3a0397a40acd4aa26730e2c8c79e279c13",
+  "oracle_independence": "oracle reads data/raw and data/synthetic Parquet only; it does not import or read scripts/engine.py, analysis_v2.py, serve_v2.py or data/wwi.duckdb",
+  "files": {
+    "dev_multistep.jsonl": {
+      "chains": 31,
+      "steps": 87,
+      "families": {
+        "change-explanation": 5,
+        "customer-by-name": 4,
+        "follow-up-context": 5,
+        "invalid-combination": 2,
+        "money": 4,
+        "overlapping-dimension": 2,
+        "supplier-exposure": 3,
+        "synthetic-fixture": 1,
+        "unpicked-triage": 4,
+        "unsupported-causal": 1
+      },
+      "sha256": "2cbdb7839aa51a59d08ae31ee286b1c2eb8df86f44591e3ed040e3b8f6b4f6b6"
+    },
+    "holdout_multistep.jsonl": {
+      "chains": 15,
+      "steps": 40,
+      "families": {
+        "change-explanation": 2,
+        "customer-by-name": 3,
+        "follow-up-context": 2,
+        "invalid-combination": 1,
+        "money": 2,
+        "overlapping-dimension": 1,
+        "supplier-exposure": 1,
+        "synthetic-fixture": 1,
+        "unpicked-triage": 1,
+        "unsupported-causal": 1
+      },
+      "sha256": "06a95285d35163ee6ba1b0f7fcc98d6993f0aec641e8983d4d2057da74cbb581"
+    },
+    "dev_utterances.jsonl": {
+      "utterances": 218,
+      "intents": {
+        "analyze": 46,
+        "breakdown": 42,
+        "clarify": 16,
+        "compare": 30,
+        "navigate": 10,
+        "records": 9,
+        "refuse": 16,
+        "related": 11,
+        "resolve_then_analyze": 38
+      },
+      "sha256": "ce3f8ccb4a91348b2ac4cad06903500fcede0aa0c0466377653782327175fbb5"
+    }
+  },
+  "validation": {
+    "errors": 0,
+    "analyze_rerun": 269,
+    "id": 327,
+    "route": 40
+  },
+  "holdout_policy": "holdout_multistep.jsonl is for final scoring only. Do not read it while building, prompting or tuning the agent. If it is used for tuning, disclose the contamination and write a fresh holdout.",
+  "agent_execution": "not-run",
+  "refrozen_utc": "2026-10-08T15:00:41Z",
+  "corrections": [
+    {
+      "what": "oracle scenario scope",
+      "change": "no_incoming_v1 now means fixture records only (v1 scenario.json scope), not base plus fixture; M05 is empty and M10/M11 are rejected in the fixture scenario",
+      "why": "consistency with the v1 API, v1 tasks and scenario.json"
+    },
+    {
+      "what": "V2H12 step 1 expected total",
+      "change": "218700 -> 120",
+      "why": "follows from the scope correction; answer-key fix, not agent tuning (no agent has been run)"
+    },
+    {
+      "what": "V2D31 step 3 expected_request",
+      "change": "added scenario_id no_incoming_v1",
+      "why": "the step continues in the fixture scenario (carried_context already said so)"
+    }
+  ]
+}

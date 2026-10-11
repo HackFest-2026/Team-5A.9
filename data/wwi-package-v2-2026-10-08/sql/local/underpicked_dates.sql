@@ -1,0 +1,1 @@
+SELECT MIN(OrderDate) FirstDate,MAX(OrderDate) LastDate,COUNT(DISTINCT OrderID) Orders,COUNT(*) Lines,SUM(UnpickedUnits)::BIGINT Units FROM analytics.order_lines WHERE ScenarioID='base' AND UnpickedUnits>0

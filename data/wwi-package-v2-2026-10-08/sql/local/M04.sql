@@ -1,0 +1,1 @@
+SELECT h.StockItemID,s.StockItemName,h.QuantityOnHand,h.ReorderLevel,h.TargetStockLevel FROM analytics.holdings h JOIN analytics.items s ON s.StockItemID=h.StockItemID AND s.ScenarioID=h.ScenarioID WHERE h.ScenarioID=? ORDER BY h.StockItemID LIMIT ? OFFSET ?

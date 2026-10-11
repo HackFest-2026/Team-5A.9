@@ -1,0 +1,7 @@
+{"t": 0.0, "kind": "turn", "text": "Which items have the most unpicked units in May 2016?"}
+{"t": 15.768, "kind": "understand", "intent": {"action": "analyze", "measure_id": "M02", "group_by": "stock_item", "period": {"kind": "month", "year": 2016, "month": 5}, "compare": "unchanged", "compare_period": null, "date_basis": null, "names": [], "ids": [], "territory": null, "status": null, "clear": [], "sort": "unchanged", "top_n": null, "use_row": null, "records_view": null, "related_type": null, "page": null, "scenario_id": null, "glossary_term": null, "playbook": null}, "latency": 15.76, "retries": 0}
+{"t": 15.768, "kind": "expectation", "action": "analyze", "request": {"measure_id": "M02", "group_by": "stock_item", "scenario_id": "base", "date_basis": "order_date", "start": "2016-05-01", "end": "2016-06-01"}}
+{"t": 15.812, "kind": "tool_call", "tool": "analyze", "args": {"measure_id": "M02", "date_basis": "order_date", "start": "2016-05-01", "end": "2016-06-01", "group_by": "stock_item", "filters": {}, "scenario_id": "base"}, "ok": true, "error": null, "latency": 0.043}
+{"t": 15.812, "kind": "finish_check", "ok": true, "violations": []}
+{"t": 39.01, "kind": "answer_draft", "draft": 0, "ok": true, "latency": 23.2, "violations": []}
+{"t": 39.01, "kind": "result", "status": "answered", "op": "analyze", "link": "#/analysis?measure_id=M02&date_basis=order_date&group_by=stock_item&sort=value_desc&top_n=10&scenario_id=base&start=2016-05-01&end=2016-06-01", "latency": 39.01, "llm_calls": 2}

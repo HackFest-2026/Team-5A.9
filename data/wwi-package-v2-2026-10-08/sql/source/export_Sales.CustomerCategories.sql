@@ -1,0 +1,1 @@
+SELECT [CustomerCategoryID],[CustomerCategoryName],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Sales].[CustomerCategories] ORDER BY [CustomerCategoryID]

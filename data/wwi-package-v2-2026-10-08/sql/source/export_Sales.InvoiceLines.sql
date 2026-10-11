@@ -1,0 +1,1 @@
+SELECT [InvoiceLineID],[InvoiceID],[StockItemID],[Description],[PackageTypeID],[Quantity],[UnitPrice],[TaxRate],[TaxAmount],[LineProfit],[ExtendedPrice],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Sales].[InvoiceLines] ORDER BY [InvoiceLineID]

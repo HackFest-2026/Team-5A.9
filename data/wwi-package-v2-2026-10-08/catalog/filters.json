@@ -1,0 +1,399 @@
+{
+  "dataset_version": "wwi-data-v1-2026-10-08",
+  "scenario_id": "base",
+  "supported_operations": [
+    "read_metric",
+    "read_records",
+    "read_chart",
+    "navigate_local_view",
+    "resolve_explicit_id"
+  ],
+  "context_propagation": {
+    "item": "retain explicit selected item across holdings/purchasing/supplier",
+    "period": "retain order-period intent; undated holdings do not apply dates and say so explicitly",
+    "scenario": "change resets entity selections and query scope",
+    "selection": "new selection replaces stale item/order/customer IDs",
+    "purchasing": "incoming vs all-history is explicit; related by item, not allocated"
+  },
+  "items": [
+    {
+      "id": "customer_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "customer_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Sales_Customers.CustomerID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "stock_item_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "stock_item_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "analytics.items.StockItemID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "supplier_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "supplier_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Purchasing_Suppliers.SupplierID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "stock_group_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "stock_group_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Warehouse_StockGroups.StockGroupID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "order_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "order_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "analytics.orders.OrderID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "order_line_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "order_line_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "analytics.order_lines.OrderLineID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "purchase_line_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "purchase_line_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Purchasing_PurchaseOrderLines.PurchaseOrderLineID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "purchase_order_id",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "purchase_order_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Purchasing_PurchaseOrders.PurchaseOrderID",
+      "propagation": "retain compatible explicit ID; unsupported metric/entity combination rejected",
+      "reset_rule": "new selection replaces previous value; scenario switch clears IDs"
+    },
+    {
+      "id": "order_date",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "start/end",
+      "date_basis": "order_date",
+      "operators": [
+        "gte",
+        "lt"
+      ],
+      "default": "order_date",
+      "value_type": "ISO-date pair",
+      "valid_enums": [],
+      "id_lookup": null,
+      "propagation": "preserve declared basis and period; invoice/confirmation are acquired but not exposed as money operations; unsupported combinations reject",
+      "reset_rule": "undated holdings: show retained intent separately; active dates omitted explicitly"
+    },
+    {
+      "id": "expected_delivery_date",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "start/end",
+      "date_basis": "expected_delivery_date",
+      "operators": [
+        "gte",
+        "lt"
+      ],
+      "default": null,
+      "value_type": "ISO-date pair",
+      "valid_enums": [],
+      "id_lookup": null,
+      "propagation": "preserve declared basis and period; invoice/confirmation are acquired but not exposed as money operations; unsupported combinations reject",
+      "reset_rule": "undated holdings: show retained intent separately; active dates omitted explicitly"
+    },
+    {
+      "id": "picking_completed_time",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "start/end",
+      "date_basis": "picking_completed_time",
+      "operators": [
+        "gte",
+        "lt"
+      ],
+      "default": null,
+      "value_type": "ISO-date pair",
+      "valid_enums": [],
+      "id_lookup": null,
+      "propagation": "preserve declared basis and period; invoice/confirmation are acquired but not exposed as money operations; unsupported combinations reject",
+      "reset_rule": "undated holdings: show retained intent separately; active dates omitted explicitly"
+    },
+    {
+      "id": "purchase_order_date",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "start/end",
+      "date_basis": "purchase_order_date",
+      "operators": [
+        "gte",
+        "lt"
+      ],
+      "default": null,
+      "value_type": "ISO-date pair",
+      "valid_enums": [],
+      "id_lookup": null,
+      "propagation": "preserve declared basis and period; invoice/confirmation are acquired but not exposed as money operations; unsupported combinations reject",
+      "reset_rule": "undated holdings: show retained intent separately; active dates omitted explicitly"
+    },
+    {
+      "id": "status",
+      "views": [
+        "overview",
+        "fulfilment",
+        "supply",
+        "detail",
+        "analysis"
+      ],
+      "field": "status",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": "all",
+      "value_type": "enum",
+      "valid_enums": [
+        "all",
+        "quantity-not-yet-picked",
+        "picking-incomplete",
+        "picking-complete",
+        "incoming",
+        "all-history"
+      ],
+      "id_lookup": null,
+      "propagation": "explicitly chosen status; purchasing vs sales mismatch rejects",
+      "reset_rule": "navigation from order investigation to incoming purchase evidence changes status to incoming visibly"
+    },
+    {
+      "id": "customer_category_id",
+      "views": [
+        "analysis"
+      ],
+      "field": "customer_category_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Sales_CustomerCategories.CustomerCategoryID",
+      "propagation": "retain until the user replaces it; customer-side filter, rejected for purchasing measures",
+      "reset_rule": "new selection replaces previous value; scenario switch clears it"
+    },
+    {
+      "id": "buying_group_id",
+      "views": [
+        "analysis"
+      ],
+      "field": "buying_group_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Sales_BuyingGroups.BuyingGroupID",
+      "propagation": "retain until the user replaces it; customer-side filter, rejected for purchasing measures",
+      "reset_rule": "new selection replaces previous value; scenario switch clears it"
+    },
+    {
+      "id": "state_province_id",
+      "views": [
+        "analysis"
+      ],
+      "field": "state_province_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Application_StateProvinces.StateProvinceID",
+      "propagation": "retain until the user replaces it; customer-side filter, rejected for purchasing measures",
+      "reset_rule": "new selection replaces previous value; scenario switch clears it"
+    },
+    {
+      "id": "sales_territory",
+      "views": [
+        "analysis"
+      ],
+      "field": "sales_territory",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "enum",
+      "valid_enums": [
+        "Far West",
+        "Great Lakes",
+        "Mideast",
+        "New England",
+        "Plains",
+        "Rocky Mountain",
+        "Southeast",
+        "Southwest",
+        "External"
+      ],
+      "id_lookup": null,
+      "propagation": "retain until the user replaces it; customer-side filter, rejected for purchasing measures",
+      "reset_rule": "new selection replaces previous value; scenario switch clears it"
+    },
+    {
+      "id": "salesperson_id",
+      "views": [
+        "analysis"
+      ],
+      "field": "salesperson_id",
+      "date_basis": null,
+      "operators": [
+        "eq"
+      ],
+      "default": null,
+      "value_type": "integer",
+      "valid_enums": [],
+      "id_lookup": "raw.Application_People.PersonID (IsSalesperson)",
+      "propagation": "retain until the user replaces it; customer-side filter, rejected for purchasing measures",
+      "reset_rule": "new selection replaces previous value; scenario switch clears it"
+    }
+  ]
+}

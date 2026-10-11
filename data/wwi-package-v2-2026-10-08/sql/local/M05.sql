@@ -1,0 +1,1 @@
+SELECT COALESCE(SUM(IncomingUnits),0)::BIGINT AS value FROM analytics.incoming i WHERE i.ScenarioID=?

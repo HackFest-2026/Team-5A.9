@@ -1,0 +1,1 @@
+SELECT i.SupplierID,s.SupplierName AS label,COALESCE(SUM(IncomingUnits),0)::BIGINT AS value FROM analytics.incoming i JOIN raw.Purchasing_Suppliers s ON s.SupplierID=i.SupplierID WHERE i.ScenarioID=? GROUP BY i.SupplierID,s.SupplierName ORDER BY value DESC,i.SupplierID

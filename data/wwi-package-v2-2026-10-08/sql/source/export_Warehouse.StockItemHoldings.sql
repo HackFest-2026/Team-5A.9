@@ -1,0 +1,1 @@
+SELECT [StockItemID],[QuantityOnHand],[BinLocation],[LastStocktakeQuantity],[LastCostPrice],[ReorderLevel],[TargetStockLevel],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Warehouse].[StockItemHoldings] ORDER BY [StockItemID]

@@ -1,0 +1,25 @@
+# secrets and private material
+r1.env
+Do_not_open/
+2026-10-05-*.txt
+
+# environments, caches, build output
+.venv/
+**/.venv/
+**/node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# third-party code and large data (regenerate or fetch separately)
+reference/
+data/wwi-data-v1-2026-10-08/
+data/wwi-package-v2-2026-10-08/runtime/
+data/wwi-package-v2-2026-10-08/data/*.duckdb
+data/wwi-package-v2-2026-10-08/app.orig-*/
+data/erpnext-loader/build/
+data/citations_cache/
+*.duckdb
+*.tar
+*.gguf
+data/wwi-package-v2-2026-10-08/evidence/
