@@ -50,3 +50,4 @@ Choices worth knowing: arithmetic is never done by the model (`facts.py`); IDs t
 ## Results
 
 See `evidence/` (JSON per run). Numbers and their configuration are in the final report from the session; dev-set numbers only, the held-out chains were not run.
+
