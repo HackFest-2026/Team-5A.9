@@ -1,7 +1,0 @@
-SET STATISTICS TIME ON; SET STATISTICS IO ON;
-DECLARE @OrderID int=73595,@StockItemID int=80;
-SELECT o.OrderID,o.CustomerID,c.CustomerName,o.OrderDate,o.ExpectedDeliveryDate,ol.OrderLineID,ol.StockItemID,s.StockItemName,ol.Quantity,ol.PickedQuantity,h.QuantityOnHand,s.QuantityPerOuter,s.SupplierID,su.SupplierName
-FROM Sales.Orders o JOIN Sales.Customers c ON c.CustomerID=o.CustomerID JOIN Sales.OrderLines ol ON ol.OrderID=o.OrderID JOIN Warehouse.StockItems s ON s.StockItemID=ol.StockItemID JOIN Warehouse.StockItemHoldings h ON h.StockItemID=s.StockItemID JOIN Purchasing.Suppliers su ON su.SupplierID=s.SupplierID WHERE o.OrderID=@OrderID AND ol.StockItemID=@StockItemID ORDER BY ol.OrderLineID;
-SELECT po.PurchaseOrderID,pl.PurchaseOrderLineID,pl.StockItemID,po.SupplierID,su.SupplierName,po.ExpectedDeliveryDate,pl.OrderedOuters,pl.ReceivedOuters,s.QuantityPerOuter,(CONVERT(bigint,pl.OrderedOuters)-pl.ReceivedOuters)*s.QuantityPerOuter UnreceivedUnits FROM Purchasing.PurchaseOrders po JOIN Purchasing.PurchaseOrderLines pl ON pl.PurchaseOrderID=po.PurchaseOrderID JOIN Warehouse.StockItems s ON s.StockItemID=pl.StockItemID JOIN Purchasing.Suppliers su ON su.SupplierID=po.SupplierID WHERE pl.StockItemID=@StockItemID AND po.IsOrderFinalized=0 AND pl.IsOrderLineFinalized=0 AND pl.OrderedOuters>pl.ReceivedOuters ORDER BY po.ExpectedDeliveryDate,po.PurchaseOrderID,pl.PurchaseOrderLineID;
-SET STATISTICS TIME OFF; SET STATISTICS IO OFF;
-

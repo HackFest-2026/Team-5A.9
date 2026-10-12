@@ -1,1 +1,0 @@
-SELECT o.OrderID,o.OrderDate,o.BackorderOrderID,l.OrderLineID,l.StockItemID,l.Quantity,l.PickedQuantity,l.PickingCompletedWhen FROM raw.Sales_OrderLines l JOIN raw.Sales_Orders o USING(OrderID) WHERE o.OrderDate<? AND (l.PickingCompletedWhen IS NULL OR l.PickingCompletedWhen>=?) ORDER BY o.OrderID,l.OrderLineID LIMIT 10

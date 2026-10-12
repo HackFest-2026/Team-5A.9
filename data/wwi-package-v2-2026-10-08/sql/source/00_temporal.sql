@@ -1,1 +1,0 @@
-SELECT s.name SchemaName,t.name TableName,t.temporal_type_desc TemporalType,OBJECT_SCHEMA_NAME(t.history_table_id) HistorySchema,OBJECT_NAME(t.history_table_id) HistoryTable FROM sys.tables t JOIN sys.schemas s ON s.schema_id=t.schema_id ORDER BY s.name,t.name

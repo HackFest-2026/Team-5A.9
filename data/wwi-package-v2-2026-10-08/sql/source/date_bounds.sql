@@ -1,1 +1,0 @@
-SELECT 'orders' Entity,MIN(OrderDate) MinDate,MAX(OrderDate) MaxDate FROM Sales.Orders UNION ALL SELECT 'purchases',MIN(OrderDate),MAX(OrderDate) FROM Purchasing.PurchaseOrders UNION ALL SELECT 'invoices',MIN(InvoiceDate),MAX(InvoiceDate) FROM Sales.Invoices

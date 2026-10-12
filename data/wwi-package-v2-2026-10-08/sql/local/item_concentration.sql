@@ -1,1 +1,0 @@
-SELECT l.StockItemID,s.StockItemName,COUNT(DISTINCT l.OrderID) Orders,COUNT(*) Lines,SUM(l.UnpickedUnits)::BIGINT Units FROM analytics.order_lines l JOIN raw.Warehouse_StockItems s USING(StockItemID) WHERE l.ScenarioID='base' AND l.UnpickedUnits>0 GROUP BY 1,2 ORDER BY Units DESC,l.StockItemID

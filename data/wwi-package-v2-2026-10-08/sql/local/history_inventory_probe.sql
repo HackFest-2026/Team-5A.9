@@ -1,1 +1,0 @@
-SELECT COUNT(*) AS MovementRows,COUNT(*) FILTER(WHERE Quantity>0) AS PositiveMovements,COUNT(*) FILTER(WHERE Quantity<0) AS NegativeMovements,MIN(TransactionOccurredWhen) AS FirstMovement,MAX(TransactionOccurredWhen) AS LastMovement FROM raw.Warehouse_StockItemTransactions

@@ -1,1 +1,0 @@
-SELECT COUNT(DISTINCT l.OrderID)::BIGINT AS value FROM analytics.order_lines l WHERE l.ScenarioID=?

@@ -1,1 +1,0 @@
-SELECT strftime(i.InvoiceDate,'%Y-%m') AS Month,COUNT(*) AS ConfirmedInvoices,COUNT(*) FILTER(WHERE CAST(i.ConfirmedDeliveryTime AS DATE)>o.ExpectedDeliveryDate) AS LaterCalendarConfirmations FROM raw.Sales_Invoices i JOIN raw.Sales_Orders o USING(OrderID) WHERE i.ConfirmedDeliveryTime IS NOT NULL AND o.ExpectedDeliveryDate IS NOT NULL GROUP BY 1 ORDER BY 1

@@ -1,1 +1,0 @@
-SELECT [StockItemStockGroupID],[StockItemID],[StockGroupID],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Warehouse].[StockItemStockGroups] ORDER BY [StockItemStockGroupID]

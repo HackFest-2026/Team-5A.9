@@ -1,1 +1,0 @@
-SELECT EXISTS(SELECT 1 FROM raw.Sales_Orders orig WHERE orig.BackorderOrderID=o.OrderID) IsBackorderTarget,COUNT(DISTINCT o.OrderID) Orders,COUNT(*) Lines,SUM(l.UnpickedUnits)::BIGINT Units FROM analytics.orders o JOIN analytics.order_lines l ON l.OrderID=o.OrderID AND l.ScenarioID=o.ScenarioID WHERE o.ScenarioID='base' AND l.UnpickedUnits>0 GROUP BY 1 ORDER BY 1

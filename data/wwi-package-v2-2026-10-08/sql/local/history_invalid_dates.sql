@@ -1,1 +1,0 @@
-SELECT COUNT(*) FILTER(WHERE l.PickingCompletedWhen<CAST(o.OrderDate AS TIMESTAMP)) AS CompletionBeforeCreation,COUNT(*) FILTER(WHERE l.PickedQuantity>l.Quantity) AS OverpickedLines,COUNT(*) FILTER(WHERE o.BackorderOrderID IS NOT NULL) AS ReferencingOriginalLines FROM raw.Sales_OrderLines l JOIN raw.Sales_Orders o USING(OrderID)

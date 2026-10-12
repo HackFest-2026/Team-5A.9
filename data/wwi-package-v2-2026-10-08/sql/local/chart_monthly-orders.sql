@@ -1,1 +1,0 @@
-WITH a AS(SELECT strftime(OrderDate,'%Y-%m') AS month,COUNT(DISTINCT OrderID)::BIGINT AS value FROM analytics.order_lines l WHERE l.ScenarioID=? GROUP BY 1),spine AS(SELECT DISTINCT Month FROM analytics.calendar WHERE Date>=? AND Date<?) SELECT spine.Month AS month,COALESCE(a.value,0)::BIGINT AS value FROM spine LEFT JOIN a ON a.month=spine.Month ORDER BY 1

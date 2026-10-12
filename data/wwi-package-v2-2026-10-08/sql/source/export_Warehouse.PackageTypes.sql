@@ -1,1 +1,0 @@
-SELECT [PackageTypeID],[PackageTypeName],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Warehouse].[PackageTypes] ORDER BY [PackageTypeID]

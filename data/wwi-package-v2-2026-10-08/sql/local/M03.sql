@@ -1,1 +1,0 @@
-SELECT COUNT(DISTINCT CASE WHEN l.UnpickedUnits>0 THEN l.OrderID END)::BIGINT AS value FROM analytics.order_lines l WHERE l.ScenarioID=?

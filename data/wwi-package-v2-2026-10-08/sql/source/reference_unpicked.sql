@@ -1,1 +1,0 @@
-SELECT COUNT_BIG(*) Lines,COUNT(DISTINCT o.OrderID) Orders,SUM(CONVERT(bigint,ol.Quantity)-ol.PickedQuantity) Units FROM Sales.OrderLines ol JOIN Sales.Orders o ON o.OrderID=ol.OrderID WHERE ol.Quantity>ol.PickedQuantity

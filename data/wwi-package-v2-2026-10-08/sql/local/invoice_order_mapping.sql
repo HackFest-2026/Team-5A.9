@@ -1,1 +1,0 @@
-SELECT COUNT(*) Invoices,COUNT(*) FILTER(WHERE OrderID IS NULL) NullOrderIDs,COUNT(*) FILTER(WHERE OrderID IS NOT NULL AND NOT EXISTS(SELECT 1 FROM raw.Sales_Orders o WHERE o.OrderID=i.OrderID)) OrphanOrderIDs FROM raw.Sales_Invoices i

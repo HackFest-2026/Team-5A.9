@@ -1,1 +1,0 @@
-SELECT [BuyingGroupID],[BuyingGroupName],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Sales].[BuyingGroups] ORDER BY [BuyingGroupID]

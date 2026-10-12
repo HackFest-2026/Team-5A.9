@@ -1,1 +1,0 @@
-SELECT [CityID],[CityName],[StateProvinceID],[LatestRecordedPopulation],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Application].[Cities] ORDER BY [CityID]

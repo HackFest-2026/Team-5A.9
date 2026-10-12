@@ -1,1 +1,0 @@
-SELECT COUNT(*) AS StoredCompletionNullLines,COUNT(*) FILTER(WHERE Quantity>PickedQuantity) AS QuantityUnpickedLines FROM raw.Sales_OrderLines WHERE PickingCompletedWhen IS NULL

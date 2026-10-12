@@ -1,1 +1,0 @@
-SELECT c.CustomerCategoryID,cat.CustomerCategoryName,COUNT(*) Customers FROM raw.Sales_Customers c LEFT JOIN raw.Sales_CustomerCategories cat USING(CustomerCategoryID) GROUP BY 1,2 ORDER BY 1

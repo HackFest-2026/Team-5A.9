@@ -1,1 +1,0 @@
-SELECT [CountryID],[CountryName],[FormalName],[IsoAlpha3Code],[IsoNumericCode],[CountryType],[LatestRecordedPopulation],[Continent],[Region],[Subregion],[LastEditedBy],CONVERT(nvarchar(33),[ValidFrom],126) AS [ValidFrom],CONVERT(nvarchar(33),[ValidTo],126) AS [ValidTo] FROM [Application].[Countries] ORDER BY [CountryID]

@@ -1,1 +1,0 @@
-SELECT [SystemParameterID],[DeliveryAddressLine1],[DeliveryAddressLine2],[DeliveryCityID],[DeliveryPostalCode],[PostalAddressLine1],[PostalAddressLine2],[PostalCityID],[PostalPostalCode],[ApplicationSettings],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Application].[SystemParameters] ORDER BY [SystemParameterID]

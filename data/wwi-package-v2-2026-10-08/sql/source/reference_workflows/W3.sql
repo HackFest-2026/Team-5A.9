@@ -1,5 +1,0 @@
-SET STATISTICS TIME ON; SET STATISTICS IO ON;
-;WITH D AS(SELECT StockItemID,SUM(CONVERT(bigint,Quantity)-PickedQuantity) UnpickedUnits,COUNT(DISTINCT OrderID) Orders FROM Sales.OrderLines WHERE PickedQuantity<Quantity GROUP BY StockItemID), I AS(SELECT pl.StockItemID,COUNT(DISTINCT po.PurchaseOrderID) IncomingPOs,SUM((CONVERT(bigint,pl.OrderedOuters)-pl.ReceivedOuters)*s.QuantityPerOuter) IncomingUnits,MIN(po.ExpectedDeliveryDate) EarliestExpectedReceipt FROM Purchasing.PurchaseOrderLines pl JOIN Purchasing.PurchaseOrders po ON po.PurchaseOrderID=pl.PurchaseOrderID JOIN Warehouse.StockItems s ON s.StockItemID=pl.StockItemID WHERE po.IsOrderFinalized=0 AND pl.IsOrderLineFinalized=0 AND pl.OrderedOuters>pl.ReceivedOuters GROUP BY pl.StockItemID)
-SELECT D.StockItemID,D.UnpickedUnits,D.Orders,h.QuantityOnHand,I.IncomingPOs,I.IncomingUnits,I.EarliestExpectedReceipt,CASE WHEN I.StockItemID IS NULL THEN 'no-qualifying-incoming-records' ELSE 'show-qualifying-purchasing' END Branch FROM D JOIN Warehouse.StockItemHoldings h ON h.StockItemID=D.StockItemID LEFT JOIN I ON I.StockItemID=D.StockItemID ORDER BY D.StockItemID;
-SET STATISTICS TIME OFF; SET STATISTICS IO OFF;
-

@@ -1,4 +1,0 @@
-title,year,venue,arxiv_id,doi,citation_count,is_influential,source,abstract_snippet
-"Point, Revise, Review: Grounded Agentic Analysis in Reactive Notebooks with marimo-lens",2026,,2609.19839,,0,False,s2,"In a computational notebook, a human can point to a rendered result and ask about""this,""while an agent acts through cells, dependencies, and runtime state. When what the human sees and what the agent operates on are disconnected, the human must describe what they mean and trace what the agent did in prose that strips away situated visual and computational context. We present marimo-lens, an extens"
-bonsai: A Mixed-Initiative Workspace for Human-AICo-Development of Visual Analytics Applications,2026,,2604.19247,,,,arxiv-fulltext,
-MIVAIS: A Study Environment for Multi-Agent Mixed-Initiative Visual Analytics Applications,2026,,2609.04983,,,,arxiv-fulltext,

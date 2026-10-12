@@ -1,1 +1,0 @@
-SELECT [PurchaseOrderID],[SupplierID],[OrderDate],[DeliveryMethodID],[ContactPersonID],[ExpectedDeliveryDate],[SupplierReference],[IsOrderFinalized],[Comments],[InternalComments],[LastEditedBy],CONVERT(nvarchar(33),[LastEditedWhen],126) AS [LastEditedWhen] FROM [Purchasing].[PurchaseOrders] ORDER BY [PurchaseOrderID]

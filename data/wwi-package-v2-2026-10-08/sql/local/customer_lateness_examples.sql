@@ -1,1 +1,0 @@
-SELECT i.InvoiceID,i.OrderID,i.InvoiceDate,o.ExpectedDeliveryDate,i.ConfirmedDeliveryTime,i.ReturnedDeliveryData,CAST(i.ConfirmedDeliveryTime AS DATE)>o.ExpectedDeliveryDate AS LaterCalendarDate FROM raw.Sales_Invoices i JOIN raw.Sales_Orders o USING(OrderID) WHERE i.ConfirmedDeliveryTime IS NOT NULL ORDER BY LaterCalendarDate DESC,i.InvoiceID LIMIT 20
